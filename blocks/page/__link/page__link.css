@@ -1,0 +1,4 @@
+.page__link {
+  text-decoration: none;
+  transition: .5s linear;
+}

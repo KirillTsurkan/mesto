@@ -1,0 +1,13 @@
+.header {
+  font-family: 'Inter', 'Arial', 'Sans-serif';
+  max-width: 880px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+@media (min-width: 320 px) and (max-width: 425px) {
+  .header {
+    max-width: 320px;
+  }
+}

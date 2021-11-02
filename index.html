@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./pages/index.css">
+    <title>Mesto</title>
+</head>
+<body class="page">
+  <div class="page__container">
+    <header class="header section page__header">
+      <img class="header__logo" src="./images/mesto_logo.svg"></img>
+    </header>
+    <main class="content">
+      <section class="profile section content__section page__profile">
+        <div class="profile__avatar-container">
+          <img src="./images/kusto.png" alt="Жак-Ив Кусто" class="profile__avatar">
+        </div>
+        <div class="profile__info">
+          <div class="profile__container">
+            <h1 class="profile__name page__title">Жак-Ив Кусто</h1>
+            <button type="button" class="profile__edit-button"></button>
+          </div>
+          <p class="profile__about"> О СЕБЕЕЕЕЕ</p>
+        </div>
+        <button class="profile__add-button"></button>
+      </section>
+    <section class="cards section content__section">
+      <div class="cards__item">
+        <img src="./images/dombay.jpg" alt="гора Домбай" class="cards__photo">
+        <div class="cards__description-container">
+          <h3 class="cards__title">Домбай</h3>
+          <div class="cards__like"></div>
+        </div>
+      </div>
+      <div class="cards__item">
+        <img src="./images/moscow.jpg" alt="гора Домбай" class="cards__photo">
+        <div class="cards__description-container">
+          <h3 class="cards__title">Москва</h3>
+          <div class="cards__like"></div>
+        </div>
+      </div>
+      <div class="cards__item">
+        <img src="./images/nizniynov.jpg" alt="гора Домбай" class="cards__photo">
+        <div class="cards__description-container">
+          <h3 class="cards__title">Нижний-Новгород</h3>
+          <div class="cards__like"></div>
+        </div>
+      </div>
+      <div class="cards__item">
+        <img src="./images/arhangelsk.jpg" alt="гора Домбай" class="cards__photo">
+        <div class="cards__description-container">
+          <h3 class="cards__title">Архангельск</h3>
+          <div class="cards__like"></div>
+        </div>
+      </div>
+      <div class="cards__item">
+        <img src="./images/krymia.jpg" alt="гора Домбай" class="cards__photo">
+        <div class="cards__description-container">
+          <h3 class="cards__title">Крым</h3>
+          <div class="cards__like"></div>
+        </div>
+      </div>
+      <div class="cards__item">
+        <img src="./images/sochi.jpg" alt="гора Домбай" class="cards__photo">
+        <div class="cards__description-container">
+          <h3 class="cards__title">Сочи</h3>
+          <div class="cards__like"></div>
+        </div>
+      </div>
+    </section>
+  <footer class="footer content__section">
+    <address class="footer__copyright"> &copy 2021 Mesto Russia</address>
+  </footer>
+  <!--<div class="popup">
+    <section class="popup__window">
+      <button class="popup__close-button"></button>
+      <div class="poup__content">
+        <h3 class="popup__title page__title">Редактировать профиль</h3>
+        <p class="popup__text-name">имя</p>
+        <p class="popup__text-about">О себе</p>
+      </div>
+    </section>
+  </div>-->
+    </main>
+  </div>
+  <script src="./scripts/script.js"></script>
+</body>
+</html>
