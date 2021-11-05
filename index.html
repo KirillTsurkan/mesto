@@ -5,12 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./pages/index.css">
+    <meta name="description" content="Проект Mesto от Яндекс Практикум">
+    <meta name="author" content="Цуркан Кирилл">
+    <meta name="keywords" content="практика на js, проект Mesto">
+
     <title>Mesto</title>
 </head>
 <body class="page">
   <div class="page__container">
     <header class="header section page__header">
-      <img class="header__logo" src="./images/mesto_logo.svg"></img>
+      <img class="header__logo" src="./images/mesto_logo.svg" alt="логотип mesto">
     </header>
     <main class="content">
       <section class="profile section content__section page__profile">
@@ -19,10 +23,10 @@
         </div>
         <div class="profile__info">
           <div class="profile__container">
-            <h1 class="profile__name page__title">Жак-Ив Кусто</h1>
+            <h1 class="profile__title page__title">Жак-Ив Кусто</h1>
             <button type="button" class="profile__edit-button"></button>
           </div>
-          <p class="profile__about"> О СЕБЕЕЕЕЕ</p>
+          <p class="profile__description"> Исследователь океана</p>
         </div>
         <button class="profile__add-button"></button>
       </section>
@@ -71,18 +75,19 @@
       </div>
     </section>
   <footer class="footer content__section">
-    <address class="footer__copyright"> &copy 2021 Mesto Russia</address>
+    <address class="footer__copyright"> &copy; 2021 Mesto Russia</address>
   </footer>
-  <!--<div class="popup">
-    <section class="popup__window">
-      <button class="popup__close-button"></button>
-      <div class="poup__content">
-        <h3 class="popup__title page__title">Редактировать профиль</h3>
-        <p class="popup__text-name">имя</p>
-        <p class="popup__text-about">О себе</p>
-      </div>
-    </section>
-  </div>-->
+  <div class="popup">
+    <div class="popup__container">
+      <h3 class="popup__title page__title">Редактировать профиль</h3>
+      <form class="popup__form" method="POST" >
+        <input type="text" class="popup__name" name="name" value="Жак-Ив Кусто" required>
+        <input type="text" class="popup__job" name="job" value="Исследователь" required>
+        <button type="submit" class="popup__save-button" >Сохранить</button>
+        <button type="reset" class="popup__close-button" ></button>
+      </form>
+    </div>
+  </div>
     </main>
   </div>
   <script src="./scripts/script.js"></script>

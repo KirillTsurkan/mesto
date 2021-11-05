@@ -1,4 +1,4 @@
-.profile__name {
+.profile__title {
 font-family: Inter,sans-serif,Arial;
 font-size: 42px;
 font-style: normal;
@@ -8,10 +8,13 @@ letter-spacing: 0em;
 color: #fff;
 max-width: 294px;
 margin: 22px 18px 16px 0;
+text-overflow: ellipsis;
+white-space: nowrap;
+overflow: hidden;
 }
 
 @media (max-width: 425px) {
-  .profile__name {
+  .profile__title {
 font-size: 27px;
 line-height: 33px;
 text-align: center;

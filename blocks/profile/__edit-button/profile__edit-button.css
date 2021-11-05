@@ -17,3 +17,11 @@
   transition: .2s;
   opacity: .6;
 }
+
+@media screen and (max-width: 425px) {
+  .profile__edit-button {
+    height: 18px;
+    width: 18px;
+
+  }
+}

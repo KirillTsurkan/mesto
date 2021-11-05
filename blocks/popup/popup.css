@@ -9,4 +9,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 100%;
+  transition: visibility 0.2s, opacity 0.2s linear;
+  display: none;
+  font-family: 'Inter', 'Arial', 'Sans-serif';
 }

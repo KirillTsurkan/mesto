@@ -4,10 +4,12 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+  padding-bottom: 41px;
 }
 
-@media (min-width: 320 px) and (max-width: 425px) {
+@media (min-width: 320px) and (max-width: 425px) {
   .header {
     max-width: 320px;
+    padding-bottom: 32px;
   }
 }

@@ -1,4 +1,11 @@
 .footer {
   max-width: 880px;
   padding-bottom: 60px;
+  font-family: 'Inter', 'Arial', 'Sans-serif';
+}
+
+@media screen and (max-width: 425px) {
+  .footer {
+    padding-bottom: 36px;
+  }
 }

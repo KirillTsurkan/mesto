@@ -5,6 +5,7 @@
   min-width: 320px;
   width: 100%;
   box-sizing: border-box;
+  height: 100%;
 }
 
 /* * {
@@ -12,7 +13,7 @@
 } */
 
 
-@media screen  and (max-width: 425px){
+@media screen  and (max-width: 768px){
   .page__container {
     padding: 0 19px;
   }
