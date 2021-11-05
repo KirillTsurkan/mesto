@@ -9,14 +9,11 @@
 @import url(../blocks/page/__profile/page__profile.css);
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
-@import url(../blocks/hidden/hidden.css);
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__name/popup__name.css);
 @import url(../blocks/popup/__job/popup__job.css);
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__form/popup__form.css);
-@import url(../blocks/popup/__form/_type/popup__form_type_name.css);
-@import url(../blocks/popup/__form/_type/popup__form_type_job.css);
 @import url(../blocks/popup/__container/poup__container.css);
 @import url(../blocks/popup/__save-button/popup__save-button.css);
 @import url(../blocks/popup/__close-button/popup__close-button.css);
