@@ -1,10 +1,14 @@
 const popupElement = document.querySelector('.popup');
 const closePopup = document.querySelector('.popup__close-button');
 const openPopup = document.querySelector('.profile__edit-button');
-const addButton = document.querySelector('.profile__add-button');
-const saveButton = document.querySelector('.popup__save-button');
+const saveButton = document.querySelector('.form__save-button');
 const profileName = document.querySelector('.profile__title');
 const profileJob = document.querySelector('.profile__description');
+let formElement = document.querySelector('.form')// Воспользуйтесь методом querySelector()
+// Находим поля формы в DOM
+let nameInput = document.querySelector('.form__name') // Воспользуйтесь инструментом .querySelector()
+let jobInput = document.querySelector('.form__job') // Воспользуйтесь инструментом .querySelector()
+
 
 
 function viewPopup() {
@@ -18,11 +22,6 @@ function noViewPopup () {
 
 }
 
-// Находим форму в DOM
-let formElement = document.querySelector('.popup__form')// Воспользуйтесь методом querySelector()
-// Находим поля формы в DOM
-let nameInput = document.querySelector('.popup__name') // Воспользуйтесь инструментом .querySelector()
-let jobInput = document.querySelector('.popup__job') // Воспользуйтесь инструментом .querySelector()
 
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет

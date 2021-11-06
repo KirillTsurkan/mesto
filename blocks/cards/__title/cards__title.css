@@ -8,7 +8,19 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  max-width: 246px;
+  max-width: 200px;
   margin: 0;
   box-sizing: border-box;
+}
+
+@media screen and (max-width:950px) {
+  .cards__title {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width:425px) {
+  .cards__title {
+    max-width: 85%;
+  }
 }

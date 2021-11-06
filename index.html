@@ -28,14 +28,14 @@
           </div>
           <p class="profile__description"> Исследователь океана</p>
         </div>
-        <button class="profile__add-button"></button>
+        <button type="button" class="profile__add-button"></button>
       </section>
     <section class="cards section content__section">
       <div class="cards__item">
         <img src="./images/dombay.jpg" alt="гора Домбай" class="cards__photo">
         <div class="cards__description-container">
           <h3 class="cards__title">Домбай</h3>
-          <div class="cards__like"></div>
+          <div type="button" class="cards__like"></div>
         </div>
       </div>
       <div class="cards__item">
@@ -74,21 +74,21 @@
         </div>
       </div>
     </section>
-  <footer class="footer content__section">
-    <address class="footer__copyright"> &copy; 2021 Mesto Russia</address>
-  </footer>
-  <div class="popup">
-    <div class="popup__container">
-      <h3 class="popup__title page__title">Редактировать профиль</h3>
-      <form class="popup__form" method="POST" >
-        <input type="text" class="popup__name" name="name" value="Жак-Ив Кусто" required>
-        <input type="text" class="popup__job" name="job" value="Исследователь" required>
-        <button type="submit" class="popup__save-button" >Сохранить</button>
-        <button type="reset" class="popup__close-button" ></button>
-      </form>
-    </div>
-  </div>
     </main>
+    <footer class="footer content__section">
+      <address class="footer__copyright"> &copy; 2021 Mesto Russia</address>
+    </footer>
+    <div class="popup">
+      <div class="popup__container">
+        <h3 class="popup__title page__title">Редактировать профиль</h3>
+        <form class="form" name="forma" method="POST" >
+          <input type="text" class="form__name" name="name" value="Жак-Ив Кусто" required>
+          <input type="text" class="form__job" name="job" value="Исследователь" required>
+          <button type="submit" class="form__save-button">Сохранить</button>
+        </form>
+        <button type="button" class="popup__close-button"></button>
+      </div>
+    </div>
   </div>
   <script src="./scripts/script.js"></script>
 </body>

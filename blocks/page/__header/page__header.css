@@ -1,11 +1,13 @@
 .page__header {
   margin: 45px auto 40px;
   border-bottom: 1px solid #545454;
+  opacity: .7;
 }
 
 @media (max-width: 425px) {
   .page__header {
-    margin: 0 0 42px 8px;
-    padding: 28px 0 32px 0;
+    margin: 0 auto 42px;
+    padding: 28px 0 32px 27px;
+    width: 100%;
   }
 }

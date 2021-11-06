@@ -21,6 +21,13 @@
   }
 }
 
+@media screen and (max-width: 320px) {
+  .cards {
+    grid-template-columns: minmax(282px, 1fr);
+    padding: 0 19px 48px;
+  }
+}
+
 
 
 
