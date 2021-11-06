@@ -15,12 +15,6 @@
 
 @media screen and (max-width:950px) {
   .cards__title {
-    max-width: 100%;
-  }
-}
-
-@media screen and (max-width:425px) {
-  .cards__title {
     max-width: 85%;
   }
 }
