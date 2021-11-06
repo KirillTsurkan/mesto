@@ -3,7 +3,7 @@
   background-color: transparent;
   background-position: 50%;
   background-repeat: no-repeat;
-  border: 2px solid #fff;
+  border: none;
   border-radius: 2px;
   height: 19px;
   outline: none;
@@ -14,7 +14,8 @@
   transition: .2s linear;
 }
 
-.cards__like:hover {
+
+  .cards__like:hover {
   background-image: url(../../../images/like_active.svg);
   transition: .2s linear;
   opacity: .6s;
