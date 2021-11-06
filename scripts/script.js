@@ -6,8 +6,8 @@ const profileName = document.querySelector('.profile__title');
 const profileJob = document.querySelector('.profile__description');
 let formElement = document.querySelector('.form')// Воспользуйтесь методом querySelector()
 // Находим поля формы в DOM
-let nameInput = document.querySelector('.form__name') // Воспользуйтесь инструментом .querySelector()
-let jobInput = document.querySelector('.form__job') // Воспользуйтесь инструментом .querySelector()
+let nameInput = document.querySelector('.form__input_type_name') // Воспользуйтесь инструментом .querySelector()
+let jobInput = document.querySelector('.form__input_type_job') // Воспользуйтесь инструментом .querySelector()
 
 
 
