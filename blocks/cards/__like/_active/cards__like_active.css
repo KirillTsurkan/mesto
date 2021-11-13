@@ -1,7 +1,5 @@
-/* .cards__like_aktive {
-  .cards__like:hover {
-  background-image: url(../../../images/like_active.svg);
+.cards__like_aktive {
+  background-image: url(../../../../images/like_active.svg);
   transition: .2s linear;
   opacity: .6s;
   }
-}  */
