@@ -1,4 +1,4 @@
-const popupElements = document.querySelectorAll('.popup');
+const popupElement = document.querySelector('.popup');
 const closePopup = document.querySelector('.popup__close-button');
 const openPopup = document.querySelector('.profile__edit-button');
 const saveButton = document.querySelector('.form__save-button');
@@ -15,13 +15,7 @@ let linkInput = document.querySelector('.form__input_type_link')
 
 //функции открытия и закрытия
 function viewPopup() {
-  popupElements.forEach(function(popup)  {
-    classList.add('popup_opened');
-//  if ()
-});
-};
-function openTypeProfileModal() {
-
+  popupElement.classList.add('popup_opened')
   jobInput.value = profileJob.textContent;
   nameInput.value = profileName.textContent;
 }
@@ -30,13 +24,6 @@ function openTypeProfileModal() {
 function noViewPopup () {
   popupElement.classList.remove('popup_opened');
 }
-
-//function inputProfile() {
- // viewPopup();
-
-//}
-
-
 
 
 // Обработчик «отправки» формы.
