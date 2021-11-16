@@ -31,48 +31,7 @@
         <button type="button" class="profile__add-button"></button>
       </section>
     <section class="cards section content__section">
-      <div class="cards__item">
-        <img src="./images/dombay.jpg" alt="гора Домбай" class="cards__photo">
-        <div class="cards__description-container">
-          <h3 class="cards__title">Домбай</h3>
-          <button type="button" class="cards__like"></button>
-        </div>
-      </div>
-      <div class="cards__item">
-        <img src="./images/moscow.jpg" alt="гора Домбай" class="cards__photo">
-        <div class="cards__description-container">
-          <h3 class="cards__title">Москва</h3>
-          <button type="button" class="cards__like"></button>
-        </div>
-      </div>
-      <div class="cards__item">
-        <img src="./images/nizniynov.jpg" alt="гора Домбай" class="cards__photo">
-        <div class="cards__description-container">
-          <h3 class="cards__title">Нижний-Новгород</h3>
-          <button type="button" class="cards__like"></button>
-        </div>
-      </div>
-      <div class="cards__item">
-        <img src="./images/arhangelsk.jpg" alt="гора Домбай" class="cards__photo">
-        <div class="cards__description-container">
-          <h3 class="cards__title">Архангельск</h3>
-          <button type="button" class="cards__like"></button>
-        </div>
-      </div>
-      <div class="cards__item">
-        <img src="./images/krymia.jpg" alt="гора Домбай" class="cards__photo">
-        <div class="cards__description-container">
-          <h3 class="cards__title">Крым</h3>
-          <button type="button" class="cards__like"></button>
-        </div>
-      </div>
-      <div class="cards__item">
-        <img src="./images/sochi.jpg" alt="гора Домбай" class="cards__photo">
-        <div class="cards__description-container">
-          <h3 class="cards__title">Сочи</h3>
-          <button type="button" class="cards__like"></button>
-        </div>
-      </div>
+
     </section>
     </main>
     <footer class="footer">
@@ -89,7 +48,7 @@
         <button type="button" class="popup__close-button"></button>
       </div>
     </div>
-    <div class="popup popup_type_size-image">
+    <!-- <div class="popup popup_type_size-image">
       <div class="popup__container">
         <h3 class="popup__title page__title"></h3>
         <form class="form" name="forma" method="POST" >
@@ -99,22 +58,30 @@
         </form>
         <button type="button" class="popup__close-button"></button>
       </div>
-    </div>
+    </div> -->
     <div class="popup popup_type_image">
       <div class="popup__container">
         <h3 class="popup__title page__title">Новое Место</h3>
-        <form class="form" name="forma" method="POST" >
-          <input type="text" class="form__input form__input_type_place" name="place" value="Москва" placeholder="название" required>
-          <input type="text" class="form__input form__input_type_link" name="link" value="ссылка" placeholder="ссылка на картинку" required>
+        <form class="form form_save-photo" name="form_save-photo" method="POST" >
+          <input type="text" class="form__input form__input_type_place" name="place" value="" placeholder="название" required>
+          <input type="url" class="form__input form__input_type_link" name="link" value="" placeholder="ссылка на картинку" required>
           <button type="submit" class="form__save-button">Сохранить</button>
         </form>
-        <button type="button" class="popup__close-button"></button>
+        <button type="button" class="popup__close-button popup__close-button-photo"></button>
       </div>
     </div>
   </div>
-  <template>
-
+  <template class="template">
+    <div class="cards__item">
+      <img src=" " alt=" " class="cards__photo">
+      <div class="cards__description-container">
+        <h3 class="cards__title"></h3>
+        <button type="button" class="cards__like"></button>
+        <button type="button" class="cards__remove"></button>
+      </div>
+    </div>
   </template>
   <script src="./scripts/script.js"></script>
 </body>
 </html>
+

@@ -1,0 +1,23 @@
+.cards__remove {
+  background-image: url(../../../images/trash.svg) ;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: transparent;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 2px;
+  height: 19px;
+  outline: none;
+  padding: 0;
+  width: 22px;
+  align-self: center;
+  cursor: pointer;
+  transition: .2s linear;
+}
+
+.cards__remove:hover {
+  transition: .2s linear;
+  opacity: .5;
+}
