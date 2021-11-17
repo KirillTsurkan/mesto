@@ -19,7 +19,7 @@
 @import url(../blocks/popup/_type/popup_type_profile.css);
 @import url(../blocks/popup/_type/popup_type_image.css);
 @import url(../blocks/popup/_type/popup_type_size-image.css);
-@import url(../blocks/popup/__container/_type/popup_container_type_size-image.css);
+@import url(../blocks/popup/__container/_type/popup__container_type_size-image.css);
 @import url(../blocks/form/form.css);
 @import url(../blocks/form/__input/form__input.css);
 @import url(../blocks/form/__input/_type/form__input_type_job.css);
