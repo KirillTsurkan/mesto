@@ -96,8 +96,8 @@ const submitformHandlerCard = (evt) => {
   const createElement = createTaskDomNode(placeInput.value, linkInput.value);
   cardSection.prepend(createElement);
   popupTypeImage.classList.remove('popup_opened');
-  linkInput.value = ' ';
-  placeInput.value = ' ';
+  linkInput.value = '';
+  placeInput.value = '';
 };
 
 const openPopuppp = function(item){
