@@ -1,3 +1,4 @@
+//-------popup----------
 const popupElement = document.querySelector('.popup');
 const popupTypeImage = document.querySelector('.popup_type_image');
 const modalSizeImage = document.querySelector('.popup_type_size-image')
@@ -5,23 +6,28 @@ const popupTypeProfile = document.querySelector('popup_type_profile')
 const closePopup = document.querySelector('.popup__close-button');
 const closePopupSize = document.querySelector('.popup__close-button_size_image')
 const closePopupPhoto = document.querySelector('.popup__close-button-photo')
-const openPopup = document.querySelector('.profile__edit-button');
-const saveButton = document.querySelector('.form__save-button');
-const profileName = document.querySelector('.profile__title');
-const profileJob = document.querySelector('.profile__description');
+//-------формы--------------
 const formElement = document.querySelector('.form');
-const addButton = document.querySelector('.profile__add-button');
-const cardsTitle = document.querySelector('.cards__title');
+const saveButton = document.querySelector('.form__save-button');
 const formSavePhoto = document.querySelector('.form_save-photo')
 const formInputPlace = document.querySelector('.form__input_type_place');
-const cardSection = document.querySelector('.cards');
 const inputForm = document.querySelector('.form_save-photo');
-const photoBigSize = document.querySelector('.cards__photo');
+
 // Находим поля формы в DOM
 const nameInput = document.querySelector('.form__input_type_name');
 const jobInput = document.querySelector('.form__input_type_job');
 const linkInput = document.querySelector('.form__input_type_link');
 const placeInput = document.querySelector('.form__input_type_place');
+//-------------Profile------------
+const openPopup = document.querySelector('.profile__edit-button');
+const profileName = document.querySelector('.profile__title');
+const profileJob = document.querySelector('.profile__description');
+const addButton = document.querySelector('.profile__add-button');
+//-------------Cards---------------
+const cardsTitle = document.querySelector('.cards__title');
+const cardSection = document.querySelector('.cards');
+const photoBigSize = document.querySelector('.cards__photo');
+
 
 
 //функция создания карточки
@@ -36,12 +42,9 @@ const createTaskDomNode = (name, link) => {
     modalSizeImage.querySelector('.popup__photo').src = taskTemplate.querySelector('.cards__photo').src;
     modalSizeImage.querySelector('.popup__photo').alt = taskTemplate.querySelector('.cards__photo').alt;
     modalSizeImage.querySelector('.popup__photo-caption').textContent = taskTemplate.querySelector('.cards__photo').alt;
-
-
   });
   closePopupSize.addEventListener('click', () => {modalSizeImage.classList.remove('popup_opened')
   });
-
   const deleteButtonPhoto = taskTemplate.querySelector('.cards__remove');
   deleteButtonPhoto.addEventListener('click', () => {
     taskTemplate.remove();
@@ -86,11 +89,11 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
-
+//-------функция присвоения данных массива карточке-------------
 const result = initialCards.map((item) => {
   return createTaskDomNode(item.name, item.link);
 });
-
+//-----------Форма отправки-------------------
 const submitformHandlerCard = (evt) => {
   evt.preventDefault();
   const createElement = createTaskDomNode(placeInput.value, linkInput.value);
@@ -151,7 +154,7 @@ function formSubmitHandler (evt) {
 //   popupTypeImage.classList.remove('popup_opened');
 // }
 
-
+//-----------Добавление форме обработчика-----------
 inputForm.addEventListener('submit', submitformHandlerCard);
 cardSection.append(...result);
 
