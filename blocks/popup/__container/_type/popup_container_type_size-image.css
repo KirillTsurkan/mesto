@@ -1,0 +1,11 @@
+.popup_container_type_size-image {
+  background: none;
+  padding: 0;
+  max-width: 75vw;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  };
+
+

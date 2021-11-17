@@ -1,12 +1,2 @@
-.popup_type_size-image .popup__container {
-  background: none;
-  padding: 0;
-  max-width: 100%;
-};
-
-
-@media screen and (max-width: 425px) {
-  .popup_type_size-image .popup__container {
-    max-width: 240px;
-  }
-};
+/* .popup_type_size-image .popup__container {
+  }; */
