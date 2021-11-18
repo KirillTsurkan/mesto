@@ -10,3 +10,6 @@
   -moz-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
   }
+  html {
+    height: 100%;
+  }
