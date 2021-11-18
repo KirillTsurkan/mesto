@@ -8,7 +8,6 @@
     <meta name="description" content="Проект Mesto от Яндекс Практикум">
     <meta name="author" content="Цуркан Кирилл">
     <meta name="keywords" content="практика на js, проект Mesto">
-
     <title>Mesto</title>
 </head>
 <body class="page">
@@ -40,12 +39,12 @@
     <div class="popup popup_type_profile">
       <div class="popup__container">
         <h3 class="popup__title page__title">Редактировать профиль</h3>
-        <form class="form" name="forma" method="POST" >
+        <form class="form form_type_profile" name="forma" method="POST" >
           <input type="text" class="form__input form__input_type_name" name="name" value="Жак-Ив Кусто" placeholder="Введите ваши данные" required>
           <input type="text" class="form__input form__input_type_job" name="job" value="Исследователь" placeholder="вид деятельности" required>
-          <button type="submit" class="form__save-button">Сохранить</button>
+          <button type="submit" class="form__save-button form__save-button_type_profile">Сохранить</button>
         </form>
-        <button type="button" class="popup__close-button"></button>
+        <button type="button" class="popup__close-button popup__close-button_type_profile"></button>
       </div>
     </div>
     <div class="popup popup_type_size-image">
@@ -60,10 +59,10 @@
         <h3 class="popup__title page__title">Новое Место</h3>
         <form class="form form_save-photo" name="form_save-photo" method="POST" >
           <input type="text" class="form__input form__input_type_place" name="place" value="" placeholder="название" required>
-          <input type="url" class="form__input form__input_type_link" name="link" value=" " placeholder="ссылка на картинку" required>
+          <input type="url" class="form__input form__input_type_link" name="link" value="" placeholder="ссылка на картинку" required>
           <button type="submit" class="form__save-button">Сохранить</button>
         </form>
-        <button type="button" class="popup__close-button popup__close-button-photo"></button>
+        <button type="button" class="popup__close-button popup__close-button-card"></button>
       </div>
     </div>
   </div>
@@ -77,7 +76,8 @@
       </div>
     </div>
   </template>
-  <script src="./scripts/script.js"></script>
+  <!-- <script src="./scripts/initial-cards.js"></script> -->
+  <script src="./scripts/index.js"></script>
 </body>
 </html>
 

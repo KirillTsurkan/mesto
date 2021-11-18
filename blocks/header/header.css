@@ -5,6 +5,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   padding-bottom: 41px;
+  width: 100%;
 }
 
 @media screen and (max-width: 320px) {

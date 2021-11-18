@@ -5,4 +5,10 @@
   border-top-right-radius: 10px;
   height: 282px;
   cursor: pointer;
+  transition: .2s linear;
+}
+
+.cards__photo:hover {
+  transition: .2s linear;
+  opacity: .9;
 }
