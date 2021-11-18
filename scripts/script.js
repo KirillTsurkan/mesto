@@ -1,17 +1,18 @@
-//-------popup----------
-const popupElement = document.querySelector('.popup');
-const popupTypeImage = document.querySelector('.popup_type_image');
-const modalSizeImage = document.querySelector('.popup_type_size-image')
-const popupTypeProfile = document.querySelector('popup_type_profile')
-const closePopup = document.querySelector('.popup__close-button');
-const closePopupSize = document.querySelector('.popup__close-button_size_image')
-const closePopupPhoto = document.querySelector('.popup__close-button-photo')
-//-------формы--------------
-const formElement = document.querySelector('.form');
-const saveButton = document.querySelector('.form__save-button');
-const formSavePhoto = document.querySelector('.form_save-photo')
-const formInputPlace = document.querySelector('.form__input_type_place');
-const inputForm = document.querySelector('.form_save-photo');
+//----------------------Popup--------------------
+const popupElementProfile = document.querySelector('.popup_type_profile');
+const popupNewCard = document.querySelector('.popup_type_image');
+const popupViewImage = document.querySelector('.popup_type_size-image');
+//----------------------Buttons------------------
+const buttonClosingProfile = document.querySelector('.popup__close-button_type_profile');
+const buttonClosingSizeImage = document.querySelector('.popup__close-button_size_image');
+const buttonClosingCard = document.querySelector('.popup__close-button-card');
+const buttonOpeningProfile = document.querySelector('.profile__edit-button');
+const buttonSavingProfile = document.querySelector('.form__save-button_type_profile');
+const addNewCardButton = document.querySelector('.profile__add-button');
+
+//----------------------формы-------------------
+const profileForm = document.querySelector('.form_type_profile');
+const cardForm = document.querySelector('.form_save-photo');
 
 // Находим поля формы в DOM
 const nameInput = document.querySelector('.form__input_type_name');
@@ -19,16 +20,11 @@ const jobInput = document.querySelector('.form__input_type_job');
 const linkInput = document.querySelector('.form__input_type_link');
 const placeInput = document.querySelector('.form__input_type_place');
 //-------------Profile------------
-const openPopup = document.querySelector('.profile__edit-button');
 const profileName = document.querySelector('.profile__title');
 const profileJob = document.querySelector('.profile__description');
 const addButton = document.querySelector('.profile__add-button');
 //-------------Cards---------------
-const cardsTitle = document.querySelector('.cards__title');
 const cardSection = document.querySelector('.cards');
-const photoBigSize = document.querySelector('.cards__photo');
-
-
 
 //функция создания карточки
 const createTaskDomNode = (name, link) => {
@@ -38,12 +34,12 @@ const createTaskDomNode = (name, link) => {
   taskTemplate.querySelector('.cards__photo').src = link
   taskTemplate.querySelector('.cards__photo').alt = name;
   taskTemplate.querySelector('.cards__photo').addEventListener('click', () => { //ПРИ КЛИКЕ БУДЕТ открываться POPUP
-    modalSizeImage.classList.add('popup_opened');
-    modalSizeImage.querySelector('.popup__photo').src = taskTemplate.querySelector('.cards__photo').src;
-    modalSizeImage.querySelector('.popup__photo').alt = taskTemplate.querySelector('.cards__photo').alt;
-    modalSizeImage.querySelector('.popup__photo-caption').textContent = taskTemplate.querySelector('.cards__photo').alt;
+    popupViewImage.classList.add('popup_opened');
+    popupViewImage.querySelector('.popup__photo').src = taskTemplate.querySelector('.cards__photo').src;
+    popupViewImage.querySelector('.popup__photo').alt = taskTemplate.querySelector('.cards__photo').alt;
+    popupViewImage.querySelector('.popup__photo-caption').textContent = taskTemplate.querySelector('.cards__photo').alt;
   });
-  closePopupSize.addEventListener('click', () => {modalSizeImage.classList.remove('popup_opened')
+  buttonClosingSizeImage.addEventListener('click', () => {popupViewImage.classList.remove('popup_opened')
   });
   const deleteButtonPhoto = taskTemplate.querySelector('.cards__remove');
   deleteButtonPhoto.addEventListener('click', () => {
@@ -98,7 +94,7 @@ const submitformHandlerCard = (evt) => {
   evt.preventDefault();
   const createElement = createTaskDomNode(placeInput.value, linkInput.value);
   cardSection.prepend(createElement);
-  popupTypeImage.classList.remove('popup_opened');
+  popupNewCard.classList.remove('popup_opened');
   linkInput.value = '';
   placeInput.value = '';
 };
@@ -109,35 +105,22 @@ const openPopuppp = function(item){
 
 //функции открытия и закрытия
 function viewPopup() {
-  popupElement.classList.add('popup_opened')
+  popupElementProfile.classList.add('popup_opened')
   jobInput.value = profileJob.textContent;
   nameInput.value = profileName.textContent;
 };
 
 function noViewPopup () {
-  popupElement.classList.remove('popup_opened');
+  popupElementProfile.classList.remove('popup_opened');
 }
 
 addButton.addEventListener('click', () => {
-  openPopuppp(popupTypeImage);
+  openPopuppp(popupNewCard);
 })
 
-closePopupPhoto.addEventListener('click', () => {
-  popupTypeImage.classList.remove('popup_opened');
+buttonClosingCard.addEventListener('click', () => {
+  popupNewCard.classList.remove('popup_opened');
 })
-
-// every button has a class "action-button"
-// const actionBtns = ...
-// actionBtns.forEach(button => {
-//   button.addEventListener('click', (evt) => {
-//     if(evt.target.classList.contains('add') {
-//       popupTypeImage.classList.add('popup_opened')
-//     }
-//   })
-// })
-// every close button has a class "close-button"
-
-
 
 // Обработчик «отправки» формы Profile
 function formSubmitHandler (evt) {
@@ -147,54 +130,13 @@ function formSubmitHandler (evt) {
   noViewPopup();
 }
 
-// function formSubmitPhoto (evt) {
-//   evt.preventDefault();
-//   cardsTitle.textContent = formInputPlace.value;
-//
-//   popupTypeImage.classList.remove('popup_opened');
-// }
-
 //-----------Добавление форме обработчика-----------
-inputForm.addEventListener('submit', submitformHandlerCard);
+cardForm.addEventListener('submit', submitformHandlerCard);
 cardSection.append(...result);
-
-
 
 
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
-formElement.addEventListener('submit', formSubmitHandler);
-openPopup.addEventListener('click', viewPopup);
-closePopup.addEventListener('click', noViewPopup);
-
-// const likeActive = LikeButtonElements.forEach(function (like) {
-//   like.addEventListener('click', (event) => {
-//   event.target.classList.toggle('cards__like_aktive');
-//   });
-// });
-
-
-//  photoBigSize.addEventListener('click', (event) => {
-//   event.target.classList.toggle('popup_opened');
-//  })
-// -----------------функция открытия модального окна фото-------------------
-
-// function handleModal() {
-
-//   const popupModal = document.querySelector('.popup_type_modal');
-//   const modalSrc = popupModal.querySelector('.popup__pic');
-//   const modalTitle = popupModal.querySelector('.popup__pic-caption');
-
-//   popupOpen(popupModal);
-//   modalTitle.textContent = name;
-//   modalSrc.alt = name;
-//   modalSrc.src = link;
-
-// }
-
-// deleteButton.addEventListener('click', handleDeletePhoto);
-// likeButton.addEventListener('click', handleLike);
-// photoSrc.addEventListener('click', handleModal);
-
-// return newPhoto;
-// }
+profileForm.addEventListener('submit', formSubmitHandler);
+buttonOpeningProfile.addEventListener('click', viewPopup);
+buttonClosingProfile.addEventListener('click', noViewPopup);
