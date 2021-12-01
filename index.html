@@ -39,9 +39,15 @@
     <div class="popup popup_type_profile">
       <div class="popup__container">
         <h3 class="popup__title page__title">Редактировать профиль</h3>
-        <form class="form form_type_profile" name="forma" method="POST" >
-          <input type="text" class="form__input form__input_type_name" name="name" value="Жак-Ив Кусто" placeholder="Введите ваши данные" required>
-          <input type="text" class="form__input form__input_type_job" name="job" value="Исследователь" placeholder="вид деятельности" required>
+        <form class="form form_type_profile" name="forma" method="POST" novalidate>
+          <label class="popup__label">
+            <input type="text" class="form__input form__input_type_name" name="name" id="name" value="" placeholder="Введите ваши данные" minlength="2" maxlength="40" required>
+            <span class="form__error" id="name-error"></span>
+          </label>
+          <label class="popup__label">
+            <input type="text" class="form__input form__input_type_job" name="job" id="job" value="" placeholder="вид деятельности" minlength="2" maxlength="200" required>
+            <span class="form__error" id="job-error"></span>
+          </label>
           <button type="submit" class="form__save-button form__save-button_type_profile">Сохранить</button>
         </form>
         <button type="button" class="popup__close-button popup__close-button_type_profile"></button>
@@ -57,10 +63,16 @@
     <div class="popup popup_type_image">
       <div class="popup__container">
         <h3 class="popup__title page__title">Новое Место</h3>
-        <form class="form form_save-photo" name="form_save-photo" method="POST" >
-          <input type="text" class="form__input form__input_type_place" name="place" value="" placeholder="название" required>
-          <input type="url" class="form__input form__input_type_link" name="link" value="" placeholder="ссылка на картинку" required>
-          <button type="submit" class="form__save-button">Сохранить</button>
+        <form class="form form_save-photo" name="form_save-photo" method="POST" novalidate>
+          <label class="popup__label">
+          <input type="text" class="form__input form__input_type_place" name="place"  id="place" value="" placeholder="название" minlength="1" maxlength="30" required>
+          <span class="form__error" id="place-error"></span>
+        </label>
+        <label class="popup__label">
+          <input type="url" class="form__input form__input_type_link" name="link" id="link" value="" placeholder="ссылка на картинку" required>
+          <span class="form__error" id="link-error"></span>
+        </label>
+          <button type="submit" class="form__save-button form__save-button_type_image">Сохранить</button>
         </form>
         <button type="button" class="popup__close-button popup__close-button-card"></button>
       </div>
@@ -77,6 +89,7 @@
     </div>
   </template>
   <!-- <script src="./scripts/initial-cards.js"></script> -->
+  <script src="./scripts/validate.js"></script>
   <script src="./scripts/index.js"></script>
 </body>
 </html>

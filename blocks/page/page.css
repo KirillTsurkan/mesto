@@ -1,5 +1,4 @@
 .page {
-  height: 100%;
   width: 100%;
   background: #000;
   font-family: 'Inter', 'Arial', 'Sans-serif';
@@ -10,6 +9,4 @@
   -moz-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
   }
-  html {
-    height: 100%;
-  }
+

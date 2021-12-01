@@ -1,0 +1,10 @@
+.form__error {
+  color: #FF3333;
+  font-size: 0.8em;
+  transition: .3s;
+  padding: 0px;
+  opacity: 0;
+  padding: 10px;
+  opacity: 1;
+  display: none;
+}

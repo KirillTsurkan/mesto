@@ -14,10 +14,14 @@
 }
 
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
   .popup__container {
     padding: 25px 22px;
     width: 282px;
   }
+}
+
+.popup__container:hover {
+  cursor: default;
 }
 
