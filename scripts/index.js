@@ -99,13 +99,13 @@ const openPopup = function(item) {
   item.classList.add("popup_opened")
 };
 
-
-document.addEventListener('click', function(evt) {
+//-----------Функция открытия popup по событию 'Click'-----------
+const openClickPopup =  (evt) => {
   if (evt.target.classList.contains('popup_opened')) {
     const openedPopup = document.querySelector('.popup_opened')
     closePopup(openedPopup);
   };
-});
+};
 
 
   //-----------Функция закрытия popup------------
@@ -160,4 +160,5 @@ addButton.addEventListener('click', () => {
 buttonClosingCard.addEventListener('click', () => {closePopup(popupNewCard);
 });
 cardForm.addEventListener('submit', handleNewCardSubmit);
+document.addEventListener('click', openClickPopup);
 
