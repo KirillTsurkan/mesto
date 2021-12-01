@@ -1,7 +1,6 @@
 
 // ------------------Функция  валидации формы--------------------
 const setEventListeners = (formElement, {inputSelector, submitButtonSelector, inactiveButtonClass, inputErrorClass, errorClass}) => {
-  // const formElement = document.querySelector('.form');
   formElement.addEventListener('submit', evt => evt.preventDefault());
   const inputList = Array.from(formElement.querySelectorAll(inputSelector));
   const buttonElement = formElement.querySelector(submitButtonSelector);
@@ -13,6 +12,7 @@ const setEventListeners = (formElement, {inputSelector, submitButtonSelector, in
     })
   });
 };
+
 // ------------------Функция проверки валидации формы-------------
 const checkInputValidity = (formElement, inputElement, {inputErrorClass, errorClass}) => {
   if (inputElement.validity.valid) {

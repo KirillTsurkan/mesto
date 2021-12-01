@@ -39,6 +39,7 @@ const buttonSavingProfile = document.querySelector('.form__save-button_type_prof
 const buttonSavingImage = document.querySelector('.form__save-button_type_image');
 
 
+
 //----------------------формы-------------------
 const profileForm = document.querySelector('.form_type_profile');
 const cardForm = document.querySelector('.form_save-photo');
@@ -87,23 +88,25 @@ const handleNewCardSubmit = (evt) => {
   const newElementCard = createCard({name: placeInput.value, link: linkInput.value});
   cardSection.prepend(newElementCard);
   closePopup(popupNewCard);
-  buttonSavingImage.setAttribute('disabled','disabled');
   cardForm.reset();
-
+  buttonSavingImage.disabled = true;
+  buttonSavingImage.classList.add('form__save-button_disabled');
 };
 
 //-----------Функция открытия popup--------------
 const openPopup = function(item) {
   document.addEventListener('keydown', handleEscUp );
   item.classList.add("popup_opened")
-  document.addEventListener('click', function (evt) {
-    if (evt.target.classList.contains('popup_opened')) {
-      popupList.forEach(function (popupElement) {
-        popupElement.classList.remove('popup_opened');
-      });
-    }
-  });
 };
+
+
+document.addEventListener('click', function(evt) {
+  if (evt.target.classList.contains('popup_opened')) {
+    const openedPopup = document.querySelector('.popup_opened')
+    closePopup(openedPopup);
+  };
+});
+
 
   //-----------Функция закрытия popup------------
   const closePopup = function (item) {
@@ -122,8 +125,8 @@ const openPopup = function(item) {
 //----функции передачи значения форме профиля----
 function openPopupProfile() {
   openPopup(popupElementProfile);
-  // jobInput.value = profileJob.textContent;
-  // nameInput.value = profileName.textContent;
+  jobInput.value = profileJob.textContent;
+  nameInput.value = profileName.textContent;
 };
 
 // Обработчик «отправки» формы Profile
@@ -132,7 +135,6 @@ function handleProfileSubmit (evt) {
   profileJob.textContent = jobInput.value;
   profileName.textContent = nameInput.value;
   closePopup(popupElementProfile);
-  profileForm.reset();
 };
 
 //обход исходного массива  и добавление их в контейнер
@@ -158,3 +160,4 @@ addButton.addEventListener('click', () => {
 buttonClosingCard.addEventListener('click', () => {closePopup(popupNewCard);
 });
 cardForm.addEventListener('submit', handleNewCardSubmit);
+
