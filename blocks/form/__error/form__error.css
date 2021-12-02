@@ -2,8 +2,8 @@
   color: #FF3333;
   font-size: 0.8em;
   transition: .3s;
-  /* padding: 10px; */
   opacity: 1;
   display: none;
   position: absolute;
+  top: 30px;
 }
