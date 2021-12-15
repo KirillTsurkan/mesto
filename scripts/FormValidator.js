@@ -42,11 +42,11 @@ export class FormValidator {
       errorElement.classList.add(this._errorClass);
       errorElement.textContent = inputElement.validationMessage;
   };
-  resetInput() {
+  reset() {
+    this._toggleButtonState(); // управляем кнопкой
     this._inputList.forEach((inputElement) => {
       this._hideInputError(inputElement) //очищаем ошибки
     });
-    this._toggleButtonState(); // управляем кнопкой
   }
 
 

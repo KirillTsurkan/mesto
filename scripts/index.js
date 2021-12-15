@@ -31,8 +31,6 @@ const initialCards = [
 const popupElementProfile = document.querySelector('.popup_type_profile');
 const popupNewCard = document.querySelector('.popup_type_image');
 export const popupViewImage = document.querySelector('.popup_type_size-image');
-const overlay = document.querySelector('.popup_opened');
-const popupList = document.querySelectorAll('.popup');
 //----------------------Buttons------------------
 const buttonOpeningProfile = document.querySelector('.profile__edit-button');
 
@@ -138,10 +136,13 @@ popups.forEach((popup) => {
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
 profileForm.addEventListener('submit', handleProfileSubmit);
-buttonOpeningProfile.addEventListener('click', openPopupProfile);
+buttonOpeningProfile.addEventListener('click', () => {
+  openPopupProfile();
+  formValidateBio.reset();
+});
 addButton.addEventListener('click', () => {
   openPopup(popupNewCard);
-  formValidatePhoto.resetInput();
+  formValidatePhoto.reset();
 });
 cardForm.addEventListener('submit', handleNewCardSubmit);
 document.addEventListener('click', handleOverlayClick);
