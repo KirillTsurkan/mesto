@@ -59,6 +59,7 @@ const handleNewCardSubmit = (evt) => {
   const newElementCard = createCard({name: placeInput.value, link: linkInput.value});
   cardSection.prepend(newElementCard);
   closePopup(popupNewCard);
+  cardForm.reset()
 };
 
 //-----------Функция открытия popup--------------
