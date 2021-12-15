@@ -7,12 +7,14 @@ export class FormValidator {
     this._inputErrorClass = validConf.inputErrorClass;
     this._errorClass = validConf.errorClass;
     this._formElement = formElement;
+    this._inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
+    this._buttonElement = this._formElement.querySelector(this._submitButtonSelector);
   }
 
   _setEventListeners() {
-    const inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
+    //const inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
     this._toggleButtonState();
-    inputList.forEach((inputElement) => {
+    this._inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', () => {
         this._checkInputValidity(inputElement);
         this._toggleButtonState();
@@ -40,23 +42,26 @@ export class FormValidator {
       errorElement.classList.add(this._errorClass);
       errorElement.textContent = inputElement.validationMessage;
   };
+  resetInput() {
+    this._inputList.forEach((inputElement) => {
+      this._hideInputError(inputElement) //очищаем ошибки
+      this._toggleButtonState(); // управляем кнопкой
+      this._formElement.reset();
+    });
+  }
 
 
   _toggleButtonState () {
-      const isFormValid = this._formElement.checkValidity();
-      const buttonElement = this._formElement.querySelector(this._submitButtonSelector)
-      buttonElement.classList.toggle(this._inactiveButtonClass, !isFormValid);
-      buttonElement.disabled = !isFormValid;
-    };
+    const isFormValid = this._formElement.checkValidity();
+    this._buttonElement.classList.toggle(this._inactiveButtonClass, !isFormValid);
+    this._buttonElement.disabled = !isFormValid;
+  };
 
 // шаг 1. перебор формы и добавление всем формам слушателя
   enableValidation () {
-      const forms = Array.from (document.querySelectorAll(this._formSelector));
-      forms.forEach ((form) => {
-        form.addEventListener('submit', (evt) => {
-          evt.preventDefault()
+      this._formElement.addEventListener('submit', (evt) => {
+        evt.preventDefault()
         });
-        this._setEventListeners();
-      });
-    };
+      this._setEventListeners();
   };
+};

@@ -18,20 +18,23 @@ export class Card {
     this._element = this._getTemplate();
     this._setEventListeners();
     this._element.querySelector('.cards__title').textContent = this._name;
-    this._element.querySelector('.cards__photo').src = this._link;
-    this._element.querySelector('.cards__photo').alt = this._name;
+    this._cardImage = this._element.querySelector('.cards__photo');
+    this._cardImage.src = this._link;
+    this._cardImage.alt = this._name;
+    this._likeButton = this._element.querySelector('.cards__like');
     return this._element;
   };
 
   _addLike() {
-    this._element.querySelector('.cards__like').classList.toggle('cards__like_aktive');
+    this._likeButton.classList.toggle('cards__like_aktive');
   };
 
   _removeCard () {
-    this._element.querySelector('.cards__remove').closest('.cards__item').remove();
+    this._element.remove();
+    this._element = null
   };
 
-  _openPhotoPopup(evt) {
+  _openPhotoPopup() {
     openPopup(popupViewImage);
     popupViewImage.querySelector('.popup__photo').src = this._link;
     popupViewImage.querySelector('.popup__photo').alt = this._name;

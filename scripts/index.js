@@ -34,12 +34,7 @@ export const popupViewImage = document.querySelector('.popup_type_size-image');
 const overlay = document.querySelector('.popup_opened');
 const popupList = document.querySelectorAll('.popup');
 //----------------------Buttons------------------
-const buttonClosingProfile = document.querySelector('.popup__close-button_type_profile');
-const buttonClosingSizeImage = document.querySelector('.popup__close-button_size_image');
-const buttonClosingCard = document.querySelector('.popup__close-button-card');
 const buttonOpeningProfile = document.querySelector('.profile__edit-button');
-const buttonSavingProfile = document.querySelector('.form__save-button_type_profile');
-const buttonSavingImage = document.querySelector('.form__save-button_type_image');
 
 //----------------------формы-------------------
 const profileForm = document.querySelector('.form_type_profile');
@@ -64,9 +59,6 @@ const handleNewCardSubmit = (evt) => {
   const newElementCard = createCard({name: placeInput.value, link: linkInput.value});
   cardSection.prepend(newElementCard);
   closePopup(popupNewCard);
-  cardForm.reset();
-  buttonSavingImage.disabled = true;
-  buttonSavingImage.classList.add('form__save-button_disabled');
 };
 
 //-----------Функция открытия popup--------------
@@ -76,10 +68,9 @@ export const openPopup = function(item) {
 };
 
 //-----------Функция открытия popup по событию 'Click'-----------
-const openClickPopup =  (evt) => {
+const handleOverlayClick = (evt) => {
   if (evt.target.classList.contains('popup_opened')) {
-    const openedPopup = document.querySelector('.popup_opened')
-    closePopup(openedPopup);
+    closePopup(evt.target);
   };
 };
 
@@ -91,8 +82,8 @@ const openClickPopup =  (evt) => {
   };
 
   const handleEscUp = (evt) => {
-    const activePopup = document.querySelector('.popup_opened');
     if (evt.key === 'Escape') {
+      const activePopup = document.querySelector('.popup_opened');
       closePopup(activePopup);
     }
   };
@@ -118,6 +109,8 @@ const createCard = (data) => {
   const card = new Card(data, '.template');
     return card.generateCard();
 };
+
+
 //обход исходного массива  и добавление их в контейнер
 const renderCards = function() {
   const createDataCards = initialCards.map((item) => {
@@ -127,21 +120,30 @@ const renderCards = function() {
 };
 renderCards();
 
+//-----------функция закрытия всех popup-----------------
+
+const popups = document.querySelectorAll('.popup')
+popups.forEach((popup) => {
+  popup.addEventListener('click', (evt) => {
+    if (evt.target.classList.contains('popup_opened')) {
+      closePopup(popup)
+      }
+    if (evt.target.classList.contains('popup__close-button')) {
+      closePopup(popup)
+      }
+  })
+})
+
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
 profileForm.addEventListener('submit', handleProfileSubmit);
 buttonOpeningProfile.addEventListener('click', openPopupProfile);
-buttonClosingProfile.addEventListener('click', () => {closePopup(popupElementProfile);
-});
-buttonClosingSizeImage.addEventListener('click', () => {closePopup(popupViewImage);
-});
 addButton.addEventListener('click', () => {
   openPopup(popupNewCard);
-});
-buttonClosingCard.addEventListener('click', () => {closePopup(popupNewCard);
+  formValidatePhoto.resetInput();
 });
 cardForm.addEventListener('submit', handleNewCardSubmit);
-document.addEventListener('click', openClickPopup);
+document.addEventListener('click', handleOverlayClick);
 
 const formValidatePhoto = new FormValidator(validationConfig, cardForm);
 const formValidateBio= new FormValidator(validationConfig, profileForm);
