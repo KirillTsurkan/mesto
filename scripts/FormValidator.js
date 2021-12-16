@@ -41,7 +41,7 @@ export class FormValidator {
       errorElement.classList.add(this._errorClass);
       errorElement.textContent = inputElement.validationMessage;
   };
-  reset() {
+  resetValidation() {
     this._toggleButtonState(); // управляем кнопкой
     this._inputList.forEach((inputElement) => {
       this._hideInputError(inputElement) //очищаем ошибки

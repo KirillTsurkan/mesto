@@ -105,7 +105,7 @@ function handleProfileSubmit (evt) {
 
 //функция создания карточки
 const createCard = (data) => {
-  const card = new Card(data, '.template');
+  const card = new Card(data, '.template'); // создание карточки при помощи класса Card
     return card.generateCard();
 };
 
@@ -133,20 +133,18 @@ popups.forEach((popup) => {
   })
 })
 
-// Прикрепляем обработчик к форме:
-// он будет следить за событием “submit” - «отправка»
+//----------- Прикрепляем обработчик-----------------
 profileForm.addEventListener('submit', handleProfileSubmit);
 buttonOpeningProfile.addEventListener('click', () => {
   openPopupProfile();
-  formValidateBio.reset();
+  formValidateBio.resetValidation();
 });
 addButton.addEventListener('click', () => {
   openPopup(popupNewCard);
-  formValidatePhoto.reset();
+  formValidatePhoto.resetValidation();
 });
 cardForm.addEventListener('submit', handleNewCardSubmit);
-document.addEventListener('click', handleOverlayClick);
-
+//----------создание нового экземпляра валидации----------------
 const formValidatePhoto = new FormValidator(validationConfig, cardForm);
 const formValidateBio= new FormValidator(validationConfig, profileForm);
 formValidatePhoto.enableValidation()
