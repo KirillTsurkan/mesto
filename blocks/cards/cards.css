@@ -10,7 +10,7 @@
 
 @media screen and (max-width: 950px) {
   .cards {
-    grid-template-columns: repeat(2, calc(50% - 17px / 2) );
+    grid-template-columns: repeat(2, calc(50% - 17px / 2));
   }
 }
 

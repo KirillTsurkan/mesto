@@ -27,29 +27,7 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
-//----------------------Popup--------------------
-const popupElementProfile = document.querySelector('.popup_type_profile');
-const popupNewCard = document.querySelector('.popup_type_image');
-export const popupViewImage = document.querySelector('.popup_type_size-image');
-//----------------------Buttons------------------
-const buttonOpeningProfile = document.querySelector('.profile__edit-button');
-
-//----------------------формы-------------------
-const profileForm = document.querySelector('.form_type_profile');
-const cardForm = document.querySelector('.form_save-photo');
-
-// Находим поля формы в DOM
-const nameInput = document.querySelector('.form__input_type_name');
-const jobInput = document.querySelector('.form__input_type_job');
-const linkInput = document.querySelector('.form__input_type_link');
-const placeInput = document.querySelector('.form__input_type_place');
-//-------------Profile------------
-const profileName = document.querySelector('.profile__title');
-const profileJob = document.querySelector('.profile__description');
-const addButton = document.querySelector('.profile__add-button');
-//-------------Cards---------------
-const cardSection = document.querySelector('.cards');
-
+import {handleEscUp,openPopup,popupElementProfile,popupNewCard,buttonOpeningProfile,profileForm,cardForm,nameInput,jobInput,linkInput,placeInput,profileName,profileJob,addButton,cardSection} from './components.js';
 
 //-----------Форма отправки-------------------
 const handleNewCardSubmit = (evt) => {
@@ -60,33 +38,11 @@ const handleNewCardSubmit = (evt) => {
   cardForm.reset()
 };
 
-//-----------Функция открытия popup--------------
-export const openPopup = function(item) {
-  document.addEventListener('keydown', handleEscUp );
-  item.classList.add("popup_opened")
-};
-
-//-----------Функция открытия popup по событию 'Click'-----------
-const handleOverlayClick = (evt) => {
-  if (evt.target.classList.contains('popup_opened')) {
-    closePopup(evt.target);
-  };
-};
-
-
   //-----------Функция закрытия popup------------
   const closePopup = function (item) {
     document.removeEventListener('keydown', handleEscUp);
     item.classList.remove('popup_opened');
   };
-
-  const handleEscUp = (evt) => {
-    if (evt.key === 'Escape') {
-      const activePopup = document.querySelector('.popup_opened');
-      closePopup(activePopup);
-    }
-  };
-
 
 //----функции передачи значения форме профиля----
 function openPopupProfile() {
@@ -120,18 +76,14 @@ const renderCards = function() {
 renderCards();
 
 //-----------функция закрытия всех popup-----------------
-
 const popups = document.querySelectorAll('.popup')
 popups.forEach((popup) => {
   popup.addEventListener('click', (evt) => {
-    if (evt.target.classList.contains('popup_opened')) {
+    if (evt.target.classList.contains('popup_opened') || evt.target.classList.contains('popup__close-button')) {
       closePopup(popup)
-      }
-    if (evt.target.classList.contains('popup__close-button')) {
-      closePopup(popup)
-      }
-  })
-})
+    }
+  });
+});
 
 //----------- Прикрепляем обработчик-----------------
 profileForm.addEventListener('submit', handleProfileSubmit);

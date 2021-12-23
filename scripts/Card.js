@@ -1,16 +1,16 @@
-import {openPopup} from './index.js';
-import {popupViewImage} from './index.js';
+import {openPopup} from './components.js';
+import {popupViewImage} from './components.js';
 
 export class Card {
-  constructor(data, cardTemplate) {
+  constructor(data, cardSelector) {
     this._name = data.name;
     this._link = data.link;
     this._altName = data.name;
-    this._cardTemplate = cardTemplate;
+    this._cardSelector = cardSelector;
   }
 
   _getTemplate() {
-    this._element = document.querySelector(this._cardTemplate).content.querySelector('.cards__item').cloneNode(true);
+    this._element = document.querySelector(this._cardSelector).content.querySelector('.cards__item').cloneNode(true);
     return this._element;
   }
 
