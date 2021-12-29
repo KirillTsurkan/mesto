@@ -1,12 +1,12 @@
-import {openPopup} from './components.js';
-import {popupViewImage} from './components.js';
+// import {openPopup} from '../utils/constants.js';
 
 export class Card {
-  constructor(data, cardSelector) {
+  constructor(data, cardSelector, handleCardClick) {
     this._name = data.name;
     this._link = data.link;
     this._altName = data.name;
     this._cardSelector = cardSelector;
+    this._handleCardClick = handleCardClick
   }
 
   _getTemplate() {
@@ -34,12 +34,12 @@ export class Card {
     this._element = null
   };
 
-  _openPhotoPopup() {
-    openPopup(popupViewImage);
-    popupViewImage.querySelector('.popup__photo').src = this._link;
-    popupViewImage.querySelector('.popup__photo').alt = this._name;
-    popupViewImage.querySelector('.popup__photo-caption').textContent = this._name;
-  };
+  // _openPhotoPopup() {
+  //   openPopup(popupViewImage);
+  //   popupViewImage.querySelector('.popup__photo').src = this._link;
+  //   popupViewImage.querySelector('.popup__photo').alt = this._name;
+  //   popupViewImage.querySelector('.popup__photo-caption').textContent = this._name;
+  // };
 
   _setEventListeners() {
     this._element.querySelector('.cards__like').addEventListener('click', (evt)=> {
@@ -50,8 +50,12 @@ export class Card {
       this._removeCard (evt);
     });
 
-    this._element.querySelector('.cards__photo').addEventListener('click', (evt)=> {
-      this._openPhotoPopup (evt);
+    this._element.querySelector('.cards__photo').addEventListener('click', () => {
+      this._handleCardClick(this._data)
     });
+
+    // this._element.querySelector('.cards__photo').addEventListener('click', (evt)=> {
+    //   this._openPhotoPopup (evt);
+    // });
   };
 };

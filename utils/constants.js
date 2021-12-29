@@ -7,12 +7,6 @@ export const validationConfig = {
   inputErrorClass: 'form__input_type_error',
   errorClass: 'form__error_visible',
 };
-// функция открытия попап
-export const openPopup = function(item) {
-  document.addEventListener('keydown', handleEscUp );
-  item.classList.add("popup_opened")
-};
-// переменные
 
 //----------------------Popup--------------------
 export const popupElementProfile = document.querySelector('.popup_type_profile');
@@ -37,10 +31,13 @@ export const addButton = document.querySelector('.profile__add-button');
 //-------------Cards---------------
 export const cardSection = document.querySelector('.cards');
 
-// обработчик закрытия по esc
-export const handleEscUp = (evt) => {
-  if (evt.key === 'Escape') {
-    const activePopup = document.querySelector('.popup_opened');
-    closePopup(activePopup);
-  }
-};
+
+// Селекторы
+export const containerSelector = '.cards';
+export const profileInputJob = '.form__input_type_job';
+export const profileInputName = '.form__input_type_name';
+export const popupImage = '.popup_type_size-image';
+export const popupTypeProfile = '.popup_type_profile'
+export const popupTypeImage = '.popup_type_image';
+export const popupProfileName = '.profile__title'
+export const popupProfileJob = '.profile__description'
