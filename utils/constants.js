@@ -1,4 +1,30 @@
 //объект с классами для валидации
+export const initialCards = [
+  {
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+  },
+  {
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+  },
+  {
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  }
+];
 export const validationConfig = {
   formSelector: '.form',
   inputSelector: '.form__input',
@@ -41,3 +67,8 @@ export const popupTypeProfile = '.popup_type_profile'
 export const popupTypeImage = '.popup_type_image';
 export const popupProfileName = '.profile__title'
 export const popupProfileJob = '.profile__description'
+
+export const initProfile = () => {
+jobInput.value = profileJob.textContent;
+nameInput.value = profileName.textContent;
+}

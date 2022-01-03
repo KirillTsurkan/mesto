@@ -13,9 +13,7 @@ constructor ({profileName, profileJob}) {
   };
 
   setUserInfo ({name, job}) {
-    console.log(name)
     this._name.textContent = name;
     this._job.textContent = job;
-    console.log(name)
   };
 };

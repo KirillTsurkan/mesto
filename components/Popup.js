@@ -18,7 +18,6 @@ export class Popup {
     document.removeEventListener('keydown', this._handleEscClose)
   }
 
-
    // обработчик закрытия по esc
   _handleEscClose (evt) {
     if (evt.key === 'Escape') {
