@@ -1,3 +1,4 @@
+import "../pages/index.css"// добавьте импорт главного файла стилей
 import {Card} from '../components/Card.js'
 import {FormValidator} from '../components/FormValidator.js'
 import {validationConfig} from '../utils/constants.js'
