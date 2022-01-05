@@ -12,11 +12,8 @@ import {
   linkInput,
   placeInput,
   addButton,
-  cardSection,
   jobInput,
   nameInput,
-  profileJob,
-  profileName,
   popupTypeProfile,
   popupTypeImage,
   templateElement,
@@ -40,7 +37,6 @@ const popupWithFormProfile = new PopupWithForm({popupSelector: popupTypeProfile,
     popupWithFormProfile.close()
   }
 });
-
 
 // объект с попап фото
 const popupWithImage = new PopupWithImage(popupImage);
