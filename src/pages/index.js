@@ -1,4 +1,4 @@
-import "../pages/index.css"// добавьте импорт главного файла стилей
+import "./index.css"// добавьте импорт главного файла стилей
 import {Card} from '../components/Card.js'
 import {FormValidator} from '../components/FormValidator.js'
 import {validationConfig} from '../utils/constants.js'
@@ -36,6 +36,7 @@ const popupWithFormProfile = new PopupWithForm({popupSelector:'.popup_type_profi
   }
 });
 
+
 // объект с попап фото
 const popupWithImage = new PopupWithImage(popupImage);
 
@@ -62,17 +63,11 @@ cardList.render ()
 const popupWithFormCards = new PopupWithForm({popupSelector:'.popup_type_image',
   handleFormCallBack:() => {
     const newElementCard = createCard({name: placeInput.value, link: linkInput.value});
-    cardSection.prepend(newElementCard);
+    cardList.addItem(newElementCard)
     cardForm.reset()
     popupWithFormCards.close();
   }
 });
-
-const initProfile = () => {
-  jobInput.value = profileJob.textContent;
-  nameInput.value = profileName.textContent;
-  }
-  initProfile()
 
 popupWithFormProfile.setEventListeners();
 popupWithImage.setEventListeners();
@@ -80,10 +75,11 @@ popupWithFormCards.setEventListeners();
 
 //----------- Прикрепляем обработчик-----------------
 buttonOpeningProfile.addEventListener('click', () => {
-  popupWithFormProfile.open();
-  const getUserInfo = userInfo.getUserInfo()
-  jobInput.value = getUserInfo.job
+  const getUserInfo = userInfo.getUserInfo();
+  jobInput.value = getUserInfo.job;
   nameInput.value = getUserInfo.name
+  formValidateBio.enableSubmitButton()
+  popupWithFormProfile.open();
 });
 
 addButton.addEventListener('click', () => {

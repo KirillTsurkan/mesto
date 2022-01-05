@@ -67,8 +67,3 @@ export const popupTypeProfile = '.popup_type_profile'
 export const popupTypeImage = '.popup_type_image';
 export const popupProfileName = '.profile__title'
 export const popupProfileJob = '.profile__description'
-
-export const initProfile = () => {
-jobInput.value = profileJob.textContent;
-nameInput.value = profileName.textContent;
-}

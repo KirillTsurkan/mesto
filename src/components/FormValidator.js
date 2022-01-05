@@ -55,6 +55,11 @@ export class FormValidator {
     this._buttonElement.disabled = !isFormValid;
   };
 
+  enableSubmitButton() { // исправляет баг, когда при открытии попапа форма валидна, а кнопка неактивна
+    this._buttonElement.classList.remove(this._inactiveButtonClass)
+    this._buttonElement.disbaled = false
+  }
+
 // шаг 1. перебор формы и добавление всем формам слушателя
   enableValidation () {
       this._formElement.addEventListener('submit', (evt) => {
