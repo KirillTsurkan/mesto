@@ -34,13 +34,6 @@ export class Card {
     this._element = null
   };
 
-  // _openPhotoPopup() {
-  //   openPopup(popupViewImage);
-  //   popupViewImage.querySelector('.popup__photo').src = this._link;
-  //   popupViewImage.querySelector('.popup__photo').alt = this._name;
-  //   popupViewImage.querySelector('.popup__photo-caption').textContent = this._name;
-  // };
-
   _setEventListeners() {
     this._element.querySelector('.cards__like').addEventListener('click', (evt)=> {
       this._addLike(evt);
@@ -53,9 +46,5 @@ export class Card {
     this._element.querySelector('.cards__photo').addEventListener('click', () => {
       this._handleCardClick(this._data)
     });
-
-    // this._element.querySelector('.cards__photo').addEventListener('click', (evt)=> {
-    //   this._openPhotoPopup (evt);
-    // });
   };
 };

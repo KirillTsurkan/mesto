@@ -17,6 +17,11 @@ import {
   nameInput,
   profileJob,
   profileName,
+  popupTypeProfile,
+  popupTypeImage,
+  templateElement,
+  popupProfileName,
+  popupProfileDescription,
 } from '../utils/constants.js';
 
 // импортируем из components  классы
@@ -26,10 +31,10 @@ import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 
 // объект отвечает за управление отображением информации о пользователе на странице, принимает два селектора(import from constants), эл- т имени и информации.
-const userInfo = new UserInfo ({profileName: '.profile__title', profileJob:'.profile__description'})
+const userInfo = new UserInfo ({profileName: popupProfileName, profileJob: popupProfileDescription})
 
 // объект с попап профайл
-const popupWithFormProfile = new PopupWithForm({popupSelector:'.popup_type_profile',
+const popupWithFormProfile = new PopupWithForm({popupSelector: popupTypeProfile,
   handleFormCallBack:({name, job}) => {
     userInfo.setUserInfo({name, job})
     popupWithFormProfile.close()
@@ -42,7 +47,7 @@ const popupWithImage = new PopupWithImage(popupImage);
 
 //функция создания карточки
 const createCard = (item) => {
-  const card = new Card(item, '.template',
+  const card = new Card(item, templateElement,
     () => {
     popupWithImage.open(item.name, item.link);
     }
@@ -60,7 +65,7 @@ const cardList = new Section ({items: initialCards,
 cardList.render ()
 
 // объект добавления карточек
-const popupWithFormCards = new PopupWithForm({popupSelector:'.popup_type_image',
+const popupWithFormCards = new PopupWithForm({popupSelector: popupTypeImage,
   handleFormCallBack:() => {
     const newElementCard = createCard({name: placeInput.value, link: linkInput.value});
     cardList.addItem(newElementCard)

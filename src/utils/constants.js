@@ -57,13 +57,13 @@ export const addButton = document.querySelector('.profile__add-button');
 //-------------Cards---------------
 export const cardSection = document.querySelector('.cards');
 
-
 // Селекторы
+export const popupTypeProfile = '.popup_type_profile';
 export const containerSelector = '.cards';
 export const profileInputJob = '.form__input_type_job';
 export const profileInputName = '.form__input_type_name';
 export const popupImage = '.popup_type_size-image';
-export const popupTypeProfile = '.popup_type_profile'
 export const popupTypeImage = '.popup_type_image';
-export const popupProfileName = '.profile__title'
-export const popupProfileJob = '.profile__description'
+export const popupProfileName = '.profile__title';
+export const templateElement = '.template';
+export const popupProfileDescription = '.profile__description';
