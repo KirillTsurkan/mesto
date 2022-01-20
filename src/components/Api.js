@@ -6,7 +6,7 @@ export class Api {
   }
 
   getCards() {
-    return fetch(this._url, {
+    return fetch(this._url + 'cards', {
       headers: {
         authorization: this._token
       }
