@@ -56,6 +56,34 @@
         <button type="button" class="popup__close-button popup__close-button_type_profile"></button>
       </div>
     </div>
+    <!------------Попап Аватара------------->
+    <div class="popup popup_type_avatar">
+      <div class="popup__container">
+        <h3 class="popup__title page__title">Обновить аватар</h3>
+        <form class="form form_type_avatar" name="form-avatar" novalidate>
+          <label class="popup__label">
+            <div class="form__field">
+              <input type="url" class="form__input form__input_type_avatar" name="avatar" id="avatar" value="" placeholder="Ссылка на изоображение" required>
+              <span class="form__error" id="avatar-error"></span>
+            </div>
+          </label>
+          <button type="submit" class="form__save-button form__save-button_type_avatar">Сохранить</button>
+        </form>
+        <button type="button" class="popup__close-button popup__close-button_type_avatar"></button>
+      </div>
+    </div>
+<!------------Попап подтверждение запрома на удаление карточек------------->
+    <div class="popup popup_type_confirm">
+      <div class="popup__container">
+        <form class="form form__confirm" name="confirm" action="#" novalidate>
+          <h3 class="popup__title page__title">Вы уверены?</h3>
+          <button type="submit" class="form__save-button form__save-button_type_submit-card ">Да</button>
+        </form>
+        <button type="button" class="popup__close-button"></button>
+      </div>
+    </div>
+
+
     <div class="popup popup_type_size-image">
       <div class="popup__container popup__container_type_size-image">
         <img src="#" alt="#" class="popup__photo">

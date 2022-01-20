@@ -5,7 +5,7 @@ export default class Section {
     this._container = document.querySelector(containerSelector)
   };
 
-  //Публичный метод отрисовки карточки, который получен из index как колбэк
+  //Публичный метод отрисовки карточки
   render () {
     this._initialArray.forEach((item) => {
       this._renderer(item)

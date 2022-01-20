@@ -2,7 +2,7 @@ import "./index.css"// добавьте импорт главного файла
 import {Card} from '../components/Card.js'
 import {FormValidator} from '../components/FormValidator.js'
 import {validationConfig} from '../utils/constants.js'
-import {initialCards} from '../utils/constants.js'
+// import {initialCards} from '../utils/constants.js'
 import {
   popupImage,
   containerSelector,
@@ -55,21 +55,31 @@ const createCard = (item) => {
   const newCard = card.generateCard();
   return newCard
 }
-window.addEventListener('load', function(evt) {
-evt.preventDefault()
+// window.addEventListener('load', function(evt) {
+// evt.preventDefault()
+
+// загрузка карточук происходит с сервера
+// объект который отвечает за отрисовку элементов на странице
 api.getCards()
-.then((result) => {
-  console.log(result);
+  .then((result) => {
+    const cardList = new Section ({
+    items: result,
+    renderer: (item) => {
+      const card = createCard(item)
+      cardList.addItem(card)
+    }
+  }, containerSelector);
+  cardList.render()
 });
-})
+
 // объект который отвечает за отрисовку элементов на странице. items renderer  selector.
-const cardList = new Section ({items: initialCards,
-  renderer: (item) => {
-    const card = createCard(item)
-    cardList.addItem(card)
-  }
-}, containerSelector);
-cardList.render ()
+// const cardList = new Section ({items: initialCards,
+//   renderer: (item) => {
+//     const card = createCard(item)
+//     cardList.addItem(card)
+//   }
+// }, containerSelector);
+// cardList.render ()
 
 // объект добавления карточек
 const popupWithFormCards = new PopupWithForm({popupSelector: popupTypeImage,
