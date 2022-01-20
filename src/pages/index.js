@@ -19,6 +19,8 @@ import {
   templateElement,
   popupProfileName,
   popupProfileDescription,
+  apiUrl,
+  token,
 } from '../utils/constants.js';
 
 // импортируем из components  классы
@@ -26,9 +28,11 @@ import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
-
+import { Api } from "../components/Api"
 // объект отвечает за управление отображением информации о пользователе на странице, принимает два селектора(import from constants), эл- т имени и информации.
 const userInfo = new UserInfo ({profileName: popupProfileName, profileJob: popupProfileDescription})
+
+const api = new Api({url: apiUrl, token})
 
 // объект с попап профайл
 const popupWithFormProfile = new PopupWithForm({popupSelector: popupTypeProfile,
@@ -51,6 +55,13 @@ const createCard = (item) => {
   const newCard = card.generateCard();
   return newCard
 }
+window.addEventListener('load', function(evt) {
+evt.preventDefault()
+api.getCards()
+.then((result) => {
+  console.log(result);
+});
+})
 // объект который отвечает за отрисовку элементов на странице. items renderer  selector.
 const cardList = new Section ({items: initialCards,
   renderer: (item) => {

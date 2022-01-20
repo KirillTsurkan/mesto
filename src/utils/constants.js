@@ -57,6 +57,11 @@ export const addButton = document.querySelector('.profile__add-button');
 //-------------Cards---------------
 export const cardSection = document.querySelector('.cards');
 
+// api
+export const apiUrl = 'https://mesto.nomoreparties.co/v1/cohort-34/'
+export const token =  '98faacdb-ea63-49dd-9d5d-7edc32da3ca2'
+
+
 // Селекторы
 export const popupTypeProfile = '.popup_type_profile';
 export const containerSelector = '.cards';
