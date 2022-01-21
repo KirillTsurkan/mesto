@@ -2,16 +2,46 @@ export class Api {
   constructor({url, token}) {
     this._url = url
     this._token = token
-
   }
-
+// общая функция для промиса и ошибки
+  _checkResponse(res) {
+    if (res.ok) {
+      return res.json()
+    }
+    return Promise.reject(`Ошибка: ${res.status}`)
+  }
+//Получение карточек с сервера
   getCards() {
     return fetch(this._url + 'cards', {
       headers: {
         authorization: this._token
       }
     })
-      .then(res => res.json())
+      .then(this._checkResponse)
+  }
+// получение данных профиля с сервера
+  getUserInformation() {
+    return fetch(`${this._url}users/me`, {
+      headers: {
+        authorization: this._token
+      }
+    })
+    .then(this._checkResponse)
+  }
+// редактирование профиля
+  editprofile(data) {
+    return fetch(`${this._url}users/me`, {
+      method: "PATCH",
+      headers: {
+        authorization: this._token,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: data.name,
+        about: data.job
+      }),
+    })
+      .then(this._checkResponse)
   }
 }
 

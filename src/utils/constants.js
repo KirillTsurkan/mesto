@@ -56,7 +56,9 @@ export const profileJob = document.querySelector('.profile__description');
 export const addButton = document.querySelector('.profile__add-button');
 //-------------Cards---------------
 export const cardSection = document.querySelector('.cards');
+//-------------Avatar--------------
 
+export const avatarButton = document.querySelector('.profile__avatar-container')
 // api
 export const apiUrl = 'https://mesto.nomoreparties.co/v1/cohort-34/'
 export const token =  '98faacdb-ea63-49dd-9d5d-7edc32da3ca2'

@@ -21,6 +21,7 @@ import {
   popupProfileDescription,
   apiUrl,
   token,
+  avatarButton,
 } from '../utils/constants.js';
 
 // импортируем из components  классы
@@ -36,8 +37,8 @@ const api = new Api({url: apiUrl, token})
 
 // объект с попап профайл
 const popupWithFormProfile = new PopupWithForm({popupSelector: popupTypeProfile,
-  handleFormCallBack:({name, job}) => {
-    userInfo.setUserInfo({name, job})
+  handleFormCallBack:(name, job) => {
+    userInfo.setUserInfo(name, job)
     popupWithFormProfile.close()
   }
 });
@@ -55,8 +56,20 @@ const createCard = (item) => {
   const newCard = card.generateCard();
   return newCard
 }
-// window.addEventListener('load', function(evt) {
-// evt.preventDefault()
+window.addEventListener('load', function(evt) {
+  evt.preventDefault()
+  api.getUserInformation ()
+  .then((result) => {
+    console.log(result)
+  })
+})
+window.addEventListener('load', function(evt) {
+  evt.preventDefault()
+  api.editprofile()
+  .then((result) => {
+    console.log(result)
+  })
+})
 
 // загрузка карточук происходит с сервера
 // объект который отвечает за отрисовку элементов на странице
