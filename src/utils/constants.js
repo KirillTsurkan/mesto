@@ -65,6 +65,8 @@ export const token =  '98faacdb-ea63-49dd-9d5d-7edc32da3ca2'
 
 
 // Селекторы
+export const profileAvatar = '.profile__avatar'
+export const popupAvatar = '.popup_type_avatar';
 export const popupTypeProfile = '.popup_type_profile';
 export const containerSelector = '.cards';
 export const profileInputJob = '.form__input_type_job';

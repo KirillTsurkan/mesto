@@ -22,6 +22,8 @@ import {
   apiUrl,
   token,
   avatarButton,
+  popupAvatar,
+  profileAvatar
 } from '../utils/constants.js';
 
 // импортируем из components  классы
@@ -31,21 +33,54 @@ import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import { Api } from "../components/Api"
 // объект отвечает за управление отображением информации о пользователе на странице, принимает два селектора(import from constants), эл- т имени и информации.
-const userInfo = new UserInfo ({profileName: popupProfileName, profileJob: popupProfileDescription})
+const userInfo = new UserInfo ({profileName: popupProfileName, profileJob: popupProfileDescription, profileAvatar: profileAvatar})
 
 const api = new Api({url: apiUrl, token})
 
+//Попап смена Аватарки
+const popupEditAvatar = new PopupWithForm ({popupSelector: popupAvatar,
+  handleFormCallBack:(data) => {
+    api.editAvatar(data)
+      .then ((res) => {
+    userInfo.setUserAvatar(res)
+    popupEditAvatar.close()
+      })
+  }
+});
+//добавление метода к аватарке
+popupEditAvatar.setEventListeners();
+avatarButton.addEventListener('click', () => {
+  popupEditAvatar.open()
+})
+
 // объект с попап профайл
 const popupWithFormProfile = new PopupWithForm({popupSelector: popupTypeProfile,
-  handleFormCallBack:(name, job) => {
-    userInfo.setUserInfo(name, job)
+  handleFormCallBack:(data) => {
+    api.editprofile(data)
+      .then ((res) => {
+    userInfo.setUserInfo(res)
     popupWithFormProfile.close()
+      })
   }
 });
 
+let cardList = null
+//рендер первоначальных карточек
+api.getCards()
+  .then((result) => {
+    cardList = new Section ({
+    items: result,
+    renderer: (item) => {
+      const card = createCard(item)
+      cardList.addItem(card)
+    }
+  }, containerSelector);
+  cardList.render()
+});
+
+// let cards, profileInfo,cardList = null;
 // объект с попап фото
 const popupWithImage = new PopupWithImage(popupImage);
-
 //функция создания карточки
 const createCard = (item) => {
   const card = new Card(item, templateElement,
@@ -56,34 +91,8 @@ const createCard = (item) => {
   const newCard = card.generateCard();
   return newCard
 }
-window.addEventListener('load', function(evt) {
-  evt.preventDefault()
-  api.getUserInformation ()
-  .then((result) => {
-    console.log(result)
-  })
-})
-window.addEventListener('load', function(evt) {
-  evt.preventDefault()
-  api.editprofile()
-  .then((result) => {
-    console.log(result)
-  })
-})
 
-// загрузка карточук происходит с сервера
-// объект который отвечает за отрисовку элементов на странице
-api.getCards()
-  .then((result) => {
-    const cardList = new Section ({
-    items: result,
-    renderer: (item) => {
-      const card = createCard(item)
-      cardList.addItem(card)
-    }
-  }, containerSelector);
-  cardList.render()
-});
+
 
 // объект который отвечает за отрисовку элементов на странице. items renderer  selector.
 // const cardList = new Section ({items: initialCards,

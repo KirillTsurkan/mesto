@@ -43,6 +43,37 @@ export class Api {
     })
       .then(this._checkResponse)
   }
+
+//редактирование аватарки
+  editAvatar(data) {
+    return fetch(`${this._url}users/me/avatar`, {
+      method: "PATCH",
+      headers: {
+        authorization: this._token,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        avatar: data.avatar,
+    }),
+  })
+  .then(this._checkResponse)
+  }
+
+//Добавление карточки
+  addCard() {
+    return fetch(`${this._url}cards`, {
+      method: "POST",
+      headers: {
+        authorization: this._token,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: data.name,
+        link: data.link,
+      }),
+  })
+  .then(this._checkResponse)
+  }
 }
 
 
