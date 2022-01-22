@@ -60,7 +60,7 @@ export class Api {
   }
 
 //Добавление карточки
-  addCard() {
+  addCard(data) {
     return fetch(`${this._url}cards`, {
       method: "POST",
       headers: {
@@ -74,6 +74,10 @@ export class Api {
   })
   .then(this._checkResponse)
   }
+  getData() {
+    return Promise.all([this.getCards(), this.getUserInformation()]);
+  }
+
 }
 
 

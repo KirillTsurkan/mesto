@@ -3,6 +3,7 @@ export class Popup {
   constructor (popupSelector) {
     this._popup = document.querySelector(popupSelector)
     this._handleEscClose = this._handleEscClose.bind(this);
+    this._popupSubmitButton = document.querySelector('.form__save-button');
   };
 
 // метод открытия Popup(вынес из index, изменил условия)
@@ -32,4 +33,8 @@ export class Popup {
       }
     })
   };
-};
+
+  renderLoading(isLoading) {
+    isLoading ? this_popupSubmitButton.textContent = 'Сохранение...': this_popupSubmitButton.textContent = 'Сохранить...'
+  }
+}

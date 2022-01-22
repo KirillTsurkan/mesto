@@ -44,6 +44,7 @@ export const buttonOpeningProfile = document.querySelector('.profile__edit-butto
 //----------------------формы-------------------
 export const profileForm = document.querySelector('.form_type_profile');
 export const cardForm = document.querySelector('.form_save-photo');
+export const avatarForm = document.querySelector('.form_type_avatar');
 
 // Находим поля формы в DOM
 export const nameInput = document.querySelector('.form__input_type_name');

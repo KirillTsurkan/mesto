@@ -1,19 +1,28 @@
 // import {openPopup} from '../utils/constants.js';
 
 export class Card {
-  constructor(data, cardSelector, handleCardClick) {
+  constructor(data, cardSelector, handleCardClick, userId) {
     this._name = data.name;
     this._link = data.link;
     this._altName = data.name;
-    this._cardSelector = cardSelector;
-    this._handleCardClick = handleCardClick
-  }
+    this._cardSelector = cardSelector; // селектор карточки
+    this._handleCardClick = handleCardClick // callback
+    this._userId = userId; // id  профиля
+    this._ownerId = data.owner._id; // id владельца карточки
+    this._cardId = data._id; // id карточки из объекта с сервера
+    //this._countLike =
+    // this._deleteCard =
+    // this._addCardLike =
+    // this._removeCardLike =
 
+
+  }
+// получили размеку(шаблон)
   _getTemplate() {
     this._element = document.querySelector(this._cardSelector).content.querySelector('.cards__item').cloneNode(true);
     return this._element;
   }
-
+// создание карточки наполнение контентом
   generateCard () {
     this._element = this._getTemplate();
     this._setEventListeners();
@@ -24,16 +33,16 @@ export class Card {
     this._likeButton = this._element.querySelector('.cards__like');
     return this._element;
   };
-
+// изменение класса лайк
   _addLike() {
     this._likeButton.classList.toggle('cards__like_aktive');
   };
-
+// удаление карточки
   _removeCard () {
     this._element.remove();
     this._element = null
   };
-
+// слушатели
   _setEventListeners() {
     this._element.querySelector('.cards__like').addEventListener('click', (evt)=> {
       this._addLike(evt);
