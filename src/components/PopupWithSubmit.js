@@ -1,4 +1,4 @@
-import Popup from './Popup.js'
+import {Popup} from './Popup.js'
 export default class PopupWithSubmit extends Popup {
 
 //пока не понял зачем???
