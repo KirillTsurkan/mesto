@@ -78,7 +78,16 @@ export class Api {
     return Promise.all([this.getCards(), this.getUserInformation()]);
   }
 
-}
+  deleateCard(data) {
+    return fetch(`${this._url}cards/${data}`, {
+      method: "DELETE",
+      headers: {
+        authorization: this._token,
+      },
+    })
+    .then(this._checkResponse)
+  }
+};
 
 
 // fetch('https://mesto.nomoreparties.co/v1/cohort-42/cards', {

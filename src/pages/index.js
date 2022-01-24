@@ -33,19 +33,18 @@ import UserInfo from '../components/UserInfo.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import { Api } from "../components/Api"
-<<<<<<< Updated upstream
-=======
+
+
 // import PopupWithRemoveQuestion from "../components/PopupWithRemoveQuestion";
->>>>>>> Stashed changes
 import { validate } from "schema-utils";
 // объект отвечает за управление отображением информации о пользователе на странице, принимает два селектора(import from constants), эл- т имени и информации.
 
-window.addEventListener('load', function() {
-  api.getUserInformation()
-    .then((res) => {
-      console.log(res);
-    })
-})
+// window.addEventListener('load', function() {
+//   api.deleateCard()
+//     .then((res) => {
+//       console.log(res);
+//     })
+// })
 // создание объекта Api
 const api = new Api({url: apiUrl, token})
 
@@ -65,8 +64,8 @@ api.getData()
   .catch(err => console.log(err))
 
 
-<<<<<<< Updated upstream
-=======
+
+
 // Попап подтверждения удаления
 // const popupConfirmCard = new PopupWithRemoveQuestion(popupConfirm, {
 //   handleFormCallBack: (data) => {
@@ -79,7 +78,7 @@ api.getData()
 //   }
 // })
 // popupConfirmCard.setEventListeners();
->>>>>>> Stashed changes
+
 
 
 //Попап смена Аватарки
@@ -131,8 +130,8 @@ const popupWithImage = new PopupWithImage(popupImage);
 
 
 //функция создания карточки
-<<<<<<< Updated upstream
-=======
+
+
 // const createCard = (data) => {
 //   const card = new Card(data, templateElement,
 //     () => {
@@ -143,17 +142,13 @@ const popupWithImage = new PopupWithImage(popupImage);
 //   return newCard
 // }
 
->>>>>>> Stashed changes
+
 const createCard = (data) => {
   const card = new Card(data, templateElement,
     () => {
     popupWithImage.open(data.name, data.link);
-<<<<<<< Updated upstream
     }
-=======
-    },
->>>>>>> Stashed changes
-  );
+  )
   const newCard = card.generateCard();
   return newCard
 }
