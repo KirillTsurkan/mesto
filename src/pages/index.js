@@ -2,7 +2,6 @@ import "./index.css"// добавьте импорт главного файла
 import {Card} from '../components/Card.js'
 import {FormValidator} from '../components/FormValidator.js'
 import {validationConfig} from '../utils/constants.js'
-// import {initialCards} from '../utils/constants.js'
 import {
   popupImage,
   containerSelector,
@@ -48,9 +47,9 @@ import { validate } from "schema-utils";
 //     })
 // })
 // создание объекта Api
+var userData = null;
 const api = new Api({url: apiUrl, token})
 // Данные ползователя
-let userData = null;
 // объект информации о User
 const userInfo = new UserInfo ({profileName: popupProfileName, profileJob: popupProfileDescription, profileAvatar: profileAvatar})
 
@@ -58,7 +57,7 @@ const userInfo = new UserInfo ({profileName: popupProfileName, profileJob: popup
 // загрузка информации с сервера о карточках и юзере
 api.getData()
   .then(([arrCards, userInform]) => {
-  userData  = userInfo;
+  userData  = userInform;
   userInfo.setUserInfo(userInform);
   userInfo.setUserAvatar(userInform)
   cardList.render(arrCards);
@@ -93,7 +92,7 @@ function deleteCard(card) {
   popupWithSubmitDelete.setFormSubmit(() => {
     api.deleteCard(card.cardId)
     .then(() => {
-      card.deleteCardElement()
+      card.deleteCardEl()
       popupWithSubmitDelete.close();
     })
     .catch(err => console.log(err));
@@ -106,6 +105,7 @@ function deleteCard(card) {
 const popupEditAvatar = new PopupWithForm ({popupSelector: popupAvatar,
   handleFormCallBack:(data) => {
     popupEditAvatar.renderLoading(true)
+    debugger;
     api.editAvatar(data)
       .then ((res) => {
     userInfo.setUserAvatar(res)
@@ -191,6 +191,7 @@ const createCard = (item) => {
         name:title,
         link: image
       })
+      debugger;
     }
   }, templateElement
   )

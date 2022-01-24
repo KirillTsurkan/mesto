@@ -7,12 +7,12 @@ export class Card {
     this._altName = data.name; // alt карточки и зобъекта
     this._likes = data.likes.length;  // для установления количества лайков
     this._likesArray = data.likes; // для проверки лайков массив лайков карточки
-    this._cardId = data._id; // id карточки из объекта с сервера, id удаляемой карточки, используется в index.js при отправке запроса
+    this.cardId = data._id; // id карточки из объекта с сервера, id удаляемой карточки, используется в index.js при отправке запроса
     this._cardSelector = cardSelector; // селектор карточки
     this._handleCardClick = handleCardClick // callback
     this._handleDeleteClick = handleDeleteClick;
     this._handleLikeClick = handleLikeClick;
-    this._dataOwnerId = data.owner._id; //id приходящий с сервера(владелец)
+    this._dataOwnerId = data.owner._id; //id приходящий с сервера(текущий пользователь)
     this._ownerId = ownerId;
   }
 
@@ -33,20 +33,21 @@ export class Card {
     this._countLike = this._element.querySelector('.cards__count-likes');
     this._deleteButton = this._element.querySelector('.cards__remove');
     this.setLike({likes: this._likesArray});
-    this._getShowDeleteBtn()
+    this._getShowDeleteBtn();
     return this._element;
   };
 
-  // метод показывает карзину только на созданных мною карточках
+  // метод показывает корзину только на созданных мною карточках
   _getShowDeleteBtn() {
     if (this._ownerId === this._dataOwnerId) {
-        this._element.querySelector('.cards__remove').classList.add('cards__remove_show');
+      this._deleteButton.classList.add('cards__remove_show');
     }
   }
 
   // метод удаления элемента карточки
-  deleteCard() {
+  deleteCardEl() {
     this._element.remove();
+    this._element = null
   }
 
 

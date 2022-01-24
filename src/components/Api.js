@@ -12,7 +12,7 @@ export class Api {
   }
 //Получение карточек с сервера
   getCards() {
-    return fetch(this._url + 'cards', {
+    return fetch(`${this._url}cards`, {
       headers: {
         authorization: this._token
       }
