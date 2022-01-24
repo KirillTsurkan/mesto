@@ -35,6 +35,10 @@ export class Popup {
   };
 
   renderLoading(isLoading) {
-    isLoading ? this_popupSubmitButton.textContent = 'Сохранение...': this_popupSubmitButton.textContent = 'Сохранить...'
+    if(isLoading) {
+      this._popupSubmitButton.textContent = 'Сохранение...';
+    } else {
+      this._popupSubmitButton.textContent = 'Сохранить';
+    }
   }
-}
+};

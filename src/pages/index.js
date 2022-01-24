@@ -84,12 +84,16 @@ api.getData()
 //Попап смена Аватарки
 const popupEditAvatar = new PopupWithForm ({popupSelector: popupAvatar,
   handleFormCallBack:(data) => {
+    popupEditAvatar.renderLoading(true)
     api.editAvatar(data)
       .then ((res) => {
     userInfo.setUserAvatar(res)
     popupEditAvatar.close()
     })
     .catch(err => console.log(err))
+    .finally(() => {
+      popupEditAvatar.renderLoading(false)
+    })
   }
 });
 //добавление метода к аватарке
@@ -101,13 +105,18 @@ avatarButton.addEventListener('click', () => {
 // объект с попап профайл
 const popupWithFormProfile = new PopupWithForm({popupSelector: popupTypeProfile,
   handleFormCallBack:(data) => {
+    popupWithFormProfile.renderLoading(true)
     api.editprofile(data)
       .then ((res) => {
     userInfo.setUserInfo(res)
     popupWithFormProfile.close()
       })
+      .catch(err => console.log(err))
+      .finally(() => {
+        popupWithFormProfile.renderLoading(false)
+      })
   }
-});
+})
 
 //рендер первоначальных карточек
 // api.getCards()
@@ -167,12 +176,25 @@ const createCard = (data) => {
 // объект добавления карточек
 const popupWithFormCards = new PopupWithForm({popupSelector: popupTypeImage,
   handleFormCallBack:() => {
-    const newElementCard = createCard({name: placeInput.value, link: linkInput.value});
-    cardList.addItem(newElementCard)
+    popupWithFormCards.renderLoading(true)
+    const item = {
+    name: placeInput.value,
+    link: linkInput.value,
+    };
+    api.addCard(item)
+    .then((res) => {
+    // const newElementCard = createCard({name: placeInput.value, link: linkInput.value});
+    cardList.addItem(createCard(res))
     cardForm.reset()
     popupWithFormCards.close();
+  })
+    .catch((err) => console.log(err))
+    .finally(() => {
+      popupWithFormCards.renderLoading(false)
+    });
   }
 });
+
 
 // const addNewCardPopup = new PopupWithForm(addCardPopup, {
 //   formSubmitCallBack: (data, button) => {

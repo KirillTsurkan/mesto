@@ -9,6 +9,7 @@ export class Card {
     this._cardId = data._id; // id карточки из объекта с сервера
     this._cardSelector = cardSelector; // селектор карточки
     this._handleCardClick = handleCardClick // callback
+    this._handleDeleteClick = handleDeleteClick
     this._userId = userId; // id  профиля
     // this._ownerId = data.owner._id; // id владельца карточки
     this._cardId = data._id; // id карточки из объекта с сервера
@@ -32,7 +33,6 @@ export class Card {
     this._cardImage.src = this._link;
     this._cardImage.alt = this._name;
     this._likeButton = this._element.querySelector('.cards__like');
-
     this._countLike = this._element.querySelector('.cards__count-likes')
     return this._element;
   };

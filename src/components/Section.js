@@ -13,6 +13,6 @@ export default class Section {
 
   //Публичный метод добавления карточки в контейнер
   addItem (element) {
-    this._container.prepend(element)
+    this._container.append(element)
   };
 };
