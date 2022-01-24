@@ -49,16 +49,16 @@ import { validate } from "schema-utils";
 // })
 // создание объекта Api
 const api = new Api({url: apiUrl, token})
-
+// Данные ползователя
+let userData = null;
 // объект информации о User
 const userInfo = new UserInfo ({profileName: popupProfileName, profileJob: popupProfileDescription, profileAvatar: profileAvatar})
 
 //переменная для ID
-let myProfileId;
 // загрузка информации с сервера о карточках и юзере
 api.getData()
   .then(([arrCards, userInform]) => {
-  myProfileId = userInfo._id;
+  userData  = userInfo;
   userInfo.setUserInfo(userInform);
   userInfo.setUserAvatar(userInform)
   cardList.render(arrCards);
@@ -82,8 +82,7 @@ api.getData()
 // popupConfirmCard.setEventListeners();
 
 
-// Данные ползователя
-let userData = null;
+
 
 //попап подтверждения удаления карточки
 const popupWithSubmitDelete = new PopupWithSubmit(popupSubmit);
@@ -172,12 +171,19 @@ const popupWithImage = new PopupWithImage(popupImage);
 //   const newCard = card.generateCard();
 //   return newCard
 // }
-
+function handleLikeClick (card, data) {
+  const promise = card.isLiked() ? api.deleteLike(data._id) : api.addLike(data._id);
+  promise
+  .then((data) => {
+    card.setLike(data);
+  })
+  .catch(err => console.log(err))
+  };
 
 const createCard = (item) => {
   const card = new Card({
     data:item,
-    // ownerId: userData._id, //мой ID
+    ownerId: userData._id, //мой ID
     handleLikeClick: () => handleLikeClick(card,item),
     handleDeleteClick: () => deleteCard(card),
     handleCardClick: (title, image) => {

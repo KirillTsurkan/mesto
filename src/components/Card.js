@@ -12,7 +12,6 @@ export class Card {
     this._handleCardClick = handleCardClick // callback
     this._handleDeleteClick = handleDeleteClick;
     this._handleLikeClick = handleLikeClick;
-    // this._userId = userId; // id  профиля
     this._dataOwnerId = data.owner._id; //id приходящий с сервера(владелец)
     this._ownerId = ownerId;
   }
@@ -41,7 +40,7 @@ export class Card {
   // метод показывает карзину только на созданных мною карточках
   _getShowDeleteBtn() {
     if (this._ownerId === this._dataOwnerId) {
-        this._element.querySelector('.cards__remove').classList.add('cards__delete_show');
+        this._element.querySelector('.cards__remove').classList.add('cards__remove_show');
     }
   }
 
