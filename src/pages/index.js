@@ -174,11 +174,19 @@ const popupWithImage = new PopupWithImage(popupImage);
 // }
 
 
-const createCard = (data) => {
-  const card = new Card(data, templateElement,
-    () => {
-    popupWithImage.open(data.name, data.link);
+const createCard = (item) => {
+  const card = new Card({
+    data:item,
+    // ownerId: userData._id, //мой ID
+    handleLikeClick: () => handleLikeClick(card,item),
+    handleDeleteClick: () => deleteCard(card),
+    handleCardClick: (title, image) => {
+      popupWithImage.open({
+        name:title,
+        link: image
+      })
     }
+  }, templateElement
   )
   const newCard = card.generateCard();
   return newCard
