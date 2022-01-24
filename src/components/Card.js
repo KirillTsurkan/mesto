@@ -1,7 +1,7 @@
 // import {openPopup} from '../utils/constants.js';
 
 export class Card {
-  constructor(data, cardSelector, handleCardClick, handleDeleteClick, userId, handleLikeButtonClick) {
+  constructor(data, cardSelector, handleCardClick, handleDeleteClick, userId, handleLikeClick) {
     this._name = data.name; // имя карточки из объекта
     this._link = data.link; // ссылка карточки из объекта
     this._altName = data.name; // alt карточки и зобъекта
@@ -9,10 +9,12 @@ export class Card {
     this._cardId = data._id; // id карточки из объекта с сервера
     this._cardSelector = cardSelector; // селектор карточки
     this._handleCardClick = handleCardClick // callback
-    this._handleDeleteClick = handleDeleteClick
+    this._handleDeleteClick = handleDeleteClick;
+    this._handleLikeClick = handleLikeClick;
     this._userId = userId; // id  профиля
     // this._ownerId = data.owner._id; // id владельца карточки
     this._cardId = data._id; // id карточки из объекта с сервера
+    this._ownerId = data.owner._id
     //this._countLike =
     // this._deleteCard =
     // this._addCardLike =
@@ -34,8 +36,17 @@ export class Card {
     this._cardImage.alt = this._name;
     this._likeButton = this._element.querySelector('.cards__like');
     this._countLike = this._element.querySelector('.cards__count-likes')
+    this._getShowDeleteBtn()
     return this._element;
   };
+
+  _getShowDeleteBtn() {
+    if (this._ownerId === this._currentId) {
+        this._element.querySelector('.cards__remove').classList.add('cards__delete_show');
+    }
+}
+
+
 // изменение класса лайк
   _addLike() {
     this._likeButton.classList.toggle('cards__like_aktive');

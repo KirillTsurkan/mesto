@@ -25,6 +25,8 @@ import {
   popupAvatar,
   profileAvatar,
   avatarForm,
+  popupSubmit
+
 } from '../utils/constants.js';
 
 // импортируем из components  классы
@@ -33,7 +35,7 @@ import UserInfo from '../components/UserInfo.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import { Api } from "../components/Api"
-
+import PopupWithSubmit from "../components/PopupWithSubmit.js";
 
 // import PopupWithRemoveQuestion from "../components/PopupWithRemoveQuestion";
 import { validate } from "schema-utils";
@@ -79,6 +81,26 @@ api.getData()
 // })
 // popupConfirmCard.setEventListeners();
 
+
+// Данные ползователя
+let userData = null;
+
+//попап подтверждения удаления карточки
+const popupWithSubmitDelete = new PopupWithSubmit(popupSubmit);
+popupWithSubmitDelete.setEventListeners();
+
+//функция удаления карточки
+function deleteCard(card) {
+  popupWithSubmitDelete.setFormSubmit(() => {
+    api.deleteCard(card.cardId)
+    .then(() => {
+      card.deleteCardElement()
+      popupWithSubmitDelete.close();
+    })
+    .catch(err => console.log(err));
+  });
+  popupWithSubmitDelete.open()
+}
 
 
 //Попап смена Аватарки

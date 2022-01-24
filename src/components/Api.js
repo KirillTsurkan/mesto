@@ -78,8 +78,27 @@ export class Api {
     return Promise.all([this.getCards(), this.getUserInformation()]);
   }
 
-  deleateCard(data) {
-    return fetch(`${this._url}cards/${data}`, {
+  deleteCard(id) {
+    return fetch(`${this._url}cards/${id}`, {
+      method: "DELETE",
+      headers: {
+        authorization: this._token,
+      },
+    })
+    .then(this._checkResponse)
+  }
+
+  addLike(id) {
+    return fetch(`${this._url}cards/likes/${id}`, {
+      method: "PUT",
+      headers: {
+        authorization: this._token,
+      },
+    })
+    .then(this._checkResponse)
+  }
+  deleteLike(id) {
+    return fetch(`${this._url}cards/likes/${id}`, {
       method: "DELETE",
       headers: {
         authorization: this._token,

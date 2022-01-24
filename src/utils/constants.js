@@ -66,6 +66,7 @@ export const token =  '98faacdb-ea63-49dd-9d5d-7edc32da3ca2'
 
 
 // Селекторы
+export const popupSubmit = '.popup_type_confirm'
 export const profileAvatar = '.profile__avatar'
 export const popupAvatar = '.popup_type_avatar';
 export const popupTypeProfile = '.popup_type_profile';
