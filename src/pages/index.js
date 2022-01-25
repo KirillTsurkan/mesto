@@ -33,7 +33,7 @@ import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
-import { Api } from "../components/Api"
+import  Api  from "../components/Api"
 import PopupWithSubmit from "../components/PopupWithSubmit.js";
 import { validate } from "schema-utils";
 
@@ -146,7 +146,6 @@ const createCard = (item) => {
         name:title,
         link: image
       })
-      debugger;
     }
   }, templateElement
   )
