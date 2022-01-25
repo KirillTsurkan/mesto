@@ -1,3 +1,4 @@
 .cards__remove_show {
   visibility: visible;
+  z-index: 5;
 }

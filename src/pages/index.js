@@ -35,19 +35,12 @@ import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import { Api } from "../components/Api"
 import PopupWithSubmit from "../components/PopupWithSubmit.js";
-
-// import PopupWithRemoveQuestion from "../components/PopupWithRemoveQuestion";
 import { validate } from "schema-utils";
-// объект отвечает за управление отображением информации о пользователе на странице, принимает два селектора(import from constants), эл- т имени и информации.
 
-// window.addEventListener('load', function() {
-//   api.deleateCard()
-//     .then((res) => {
-//       console.log(res);
-//     })
-// })
+// Данные ползователя
+let userData = null;
+
 // создание объекта Api
-var userData = null;
 const api = new Api({url: apiUrl, token})
 // Данные ползователя
 // объект информации о User
@@ -63,24 +56,6 @@ api.getData()
   cardList.render(arrCards);
   })
   .catch(err => console.log(err))
-
-
-
-
-// Попап подтверждения удаления
-// const popupConfirmCard = new PopupWithRemoveQuestion(popupConfirm, {
-//   handleFormCallBack: (data) => {
-//     api.deleteCard(data)
-//     .then (() => {
-//       data.card.remove()
-//       popupConfirm.close()
-//     })
-//     .catch((err) => console.log(err));
-//   }
-// })
-// popupConfirmCard.setEventListeners();
-
-
 
 
 //попап подтверждения удаления карточки
@@ -100,12 +75,10 @@ function deleteCard(card) {
   popupWithSubmitDelete.open()
 }
 
-
 //Попап смена Аватарки
 const popupEditAvatar = new PopupWithForm ({popupSelector: popupAvatar,
   handleFormCallBack:(data) => {
     popupEditAvatar.renderLoading(true)
-    debugger;
     api.editAvatar(data)
       .then ((res) => {
     userInfo.setUserAvatar(res)
@@ -140,8 +113,6 @@ const popupWithFormProfile = new PopupWithForm({popupSelector: popupTypeProfile,
 })
 
 //рендер первоначальных карточек
-// api.getCards()
-//   .then((result) => {
     const cardList = new Section ({
     // items: result,
     renderer: (item) => {
@@ -149,28 +120,12 @@ const popupWithFormProfile = new PopupWithForm({popupSelector: popupTypeProfile,
       cardList.addItem(createCard(item))
     }
   }, containerSelector);
-  // cardList.render()
-
-// let cards, profileInfo,cardList = null;
-// объект с попап фото
 
 // Попап открытия картинки
 const popupWithImage = new PopupWithImage(popupImage);
 
 
-
-//функция создания карточки
-
-
-// const createCard = (data) => {
-//   const card = new Card(data, templateElement,
-//     () => {
-//     popupWithImage.open(data.name, data.link);
-//     }
-//   );
-//   const newCard = card.generateCard();
-//   return newCard
-// }
+// установка и снятие лайка
 function handleLikeClick (card, data) {
   const promise = card.isLiked() ? api.deleteLike(data._id) : api.addLike(data._id);
   promise
@@ -200,16 +155,6 @@ const createCard = (item) => {
 }
 
 
-
-// объект который отвечает за отрисовку элементов на странице. items renderer  selector.
-// const cardList = new Section ({items: initialCards,
-//   renderer: (item) => {
-//     const card = createCard(item)
-//     cardList.addItem(card)
-//   }
-// }, containerSelector);
-// cardList.render ()
-
 // объект добавления карточек
 const popupWithFormCards = new PopupWithForm({popupSelector: popupTypeImage,
   handleFormCallBack:() => {
@@ -220,7 +165,6 @@ const popupWithFormCards = new PopupWithForm({popupSelector: popupTypeImage,
     };
     api.addCard(item)
     .then((res) => {
-    // const newElementCard = createCard({name: placeInput.value, link: linkInput.value});
     cardList.addItem(createCard(res))
     cardForm.reset()
     popupWithFormCards.close();
@@ -231,28 +175,6 @@ const popupWithFormCards = new PopupWithForm({popupSelector: popupTypeImage,
     });
   }
 });
-
-
-// const addNewCardPopup = new PopupWithForm(addCardPopup, {
-//   formSubmitCallBack: (data, button) => {
-//     addSpinner(button);
-//     const item = {
-//       name: data.placeName,
-//       link: data.placeLink,
-//     };
-//     api
-//       .addNewCard(item)
-//       .then((res) => {
-//         section.addItem(createCard(res), true);
-//         addNewCardPopup.close();
-//       })
-//       .catch((err) => console.log(err))
-//       .finally(() => {
-//         removeSpinner(button);
-//       });
-//   },
-// });
-
 
 
 // метод из попапа

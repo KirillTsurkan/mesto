@@ -50,7 +50,6 @@ export class Card {
     this._element = null
   }
 
-
 // изменение класса лайк
 isLiked() {
   return this._isLiked;
@@ -65,25 +64,11 @@ setLike(newdata) {
     this._likeButton.classList.remove('cards__like_aktive')
   }
 }
-
-
-
-
-
-  // _addLike() {
-  //   this._likeButton.classList.toggle('cards__like_aktive');
-  // };
-// удаление карточки
-  // _removeCard () {
-  //   this._element.remove();
-  //   this._element = null
-  // };
 // слушатели
   _setEventListeners() {
     this._element.querySelector('.cards__like').addEventListener('click', (evt)=> {
       this._handleLikeClick(this);
     })
-
 
     this._element.querySelector('.cards__remove').addEventListener('click', ()=> {
       this._handleDeleteClick(this); // работает без передачи (this)
