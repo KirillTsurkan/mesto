@@ -16,4 +16,6 @@
 * Grid Layout
 * Flex
 * Git
+* OOP
+* API
 

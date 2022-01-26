@@ -104,6 +104,7 @@ avatarButton.addEventListener("click", () => {
 const popupWithFormProfile = new PopupWithForm({
   popupSelector: popupTypeProfile,
   handleFormCallBack: (data) => {
+    debugger;
     popupWithFormProfile.renderLoading(false, true);
     api
       .editprofile(data)
