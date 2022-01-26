@@ -207,7 +207,6 @@ addButton.addEventListener("click", () => {
   formValidatePhoto.resetValidation();
   popupWithFormCards.open();
 });
-
 //----------создание нового экземпляра валидации----------------
 const formValidatePhoto = new FormValidator(validationConfig, cardForm);
 const formValidateBio = new FormValidator(validationConfig, profileForm);
