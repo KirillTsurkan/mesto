@@ -80,7 +80,8 @@ function deleteCard(card) {
 const popupEditAvatar = new PopupWithForm({
   popupSelector: popupAvatar,
   handleFormCallBack: (data) => {
-    popupEditAvatar.renderLoading(true, false);
+    console.log(1)
+    popupEditAvatar.renderLoading(true, 'Сохранение...');
     api
       .editAvatar(data)
       .then((res) => {
@@ -89,7 +90,7 @@ const popupEditAvatar = new PopupWithForm({
       })
       .catch((err) => console.log(err))
       .finally(() => {
-        popupEditAvatar.renderLoading(false, false);
+        popupEditAvatar.renderLoading(false);
       });
   },
 });
@@ -104,7 +105,7 @@ avatarButton.addEventListener("click", () => {
 const popupWithFormProfile = new PopupWithForm({
   popupSelector: popupTypeProfile,
   handleFormCallBack: (data) => {
-    popupWithFormProfile.renderLoading(false, true);
+    popupWithFormProfile.renderLoading(true, 'Загрузка...');
     api
       .editprofile(data)
       .then((res) => {
@@ -113,7 +114,7 @@ const popupWithFormProfile = new PopupWithForm({
       })
       .catch((err) => console.log(err))
       .finally(() => {
-        popupWithFormProfile.renderLoading(false, false);
+        popupWithFormProfile.renderLoading(false);
       });
   },
 });
@@ -133,6 +134,7 @@ const popupWithImage = new PopupWithImage(popupImage);
 
 // установка и снятие лайка
 function handleLikeClick(card, data) {
+  debugger;
   const promise = card.isLiked()
     ? api.deleteLike(data._id)
     : api.addLike(data._id);
@@ -167,7 +169,7 @@ const createCard = (item) => {
 const popupWithFormCards = new PopupWithForm({
   popupSelector: popupTypeImage,
   handleFormCallBack: (data) => {
-    popupWithFormCards.renderLoading(true, false);
+    popupWithFormCards.renderLoading(true, 'Сохранение...');
     const item = {
       name: data.place,
       link: data.link,
@@ -181,7 +183,7 @@ const popupWithFormCards = new PopupWithForm({
       })
       .catch((err) => console.log(err))
       .finally(() => {
-        popupWithFormCards.renderLoading(false, false);
+        popupWithFormCards.renderLoading(false);
       });
   },
 });
@@ -207,6 +209,7 @@ addButton.addEventListener("click", () => {
   formValidatePhoto.resetValidation();
   popupWithFormCards.open();
 });
+
 //----------создание нового экземпляра валидации----------------
 const formValidatePhoto = new FormValidator(validationConfig, cardForm);
 const formValidateBio = new FormValidator(validationConfig, profileForm);

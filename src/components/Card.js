@@ -63,8 +63,8 @@ export class Card {
 
   setLike(newData) {
     this._isLiked =
-      newData.likes.filter((item) => {
-        return item._id == this._ownerId;
+      newData.likes.filter((like) => {
+        return like._id == this._ownerId;
       }).length > 0;
     this._countLike.textContent = newData.likes.length;
     if (this._isLiked) {
@@ -72,7 +72,7 @@ export class Card {
     } else {
       this._likeButton.classList.remove("cards__like_aktive");
     }
-  }
+  };
   // слушатели
   _setEventListeners() {
     this._element
